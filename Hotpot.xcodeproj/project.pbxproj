@@ -36,6 +36,7 @@
 		526BF25F20449FBE0052BC19 /* HotpotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotpotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		526BF26320449FBE0052BC19 /* HotpotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpotTests.swift; sourceTree = "<group>"; };
 		526BF26520449FBE0052BC19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F50130AE205EDBB100CF7350 /* rawpixel-com-570908-unsplash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rawpixel-com-570908-unsplash.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +82,7 @@
 				526BF25020449FBD0052BC19 /* ViewController.swift */,
 				526BF25220449FBD0052BC19 /* Main.storyboard */,
 				526BF25520449FBD0052BC19 /* Assets.xcassets */,
+				F50130AE205EDBB100CF7350 /* rawpixel-com-570908-unsplash.jpg */,
 				526BF25720449FBD0052BC19 /* LaunchScreen.storyboard */,
 				526BF25A20449FBD0052BC19 /* Info.plist */,
 			);
