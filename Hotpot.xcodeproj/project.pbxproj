@@ -14,6 +14,7 @@
 		526BF25620449FBD0052BC19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526BF25520449FBD0052BC19 /* Assets.xcassets */; };
 		526BF25920449FBD0052BC19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526BF25720449FBD0052BC19 /* LaunchScreen.storyboard */; };
 		526BF26420449FBE0052BC19 /* HotpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BF26320449FBE0052BC19 /* HotpotTests.swift */; };
+		52BC1B90205EF24B00EAAA15 /* rawpixel-com-570908-unsplash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F50130AE205EDBB100CF7350 /* rawpixel-com-570908-unsplash.jpg */; };
 		D1D1BCD8DB1100B83CE516D3 /* Pods_Hotpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBBEFA463EC4D7A4D9CDD71 /* Pods_Hotpot.framework */; };
 /* End PBXBuildFile section */
 
@@ -219,7 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5151BDE205EE9CA008F20EB /* rawpixel-com-570908-unsplash.jpg in Resources */,
+				52BC1B90205EF24B00EAAA15 /* rawpixel-com-570908-unsplash.jpg in Resources */,
 				526BF25920449FBD0052BC19 /* LaunchScreen.storyboard in Resources */,
 				526BF25620449FBD0052BC19 /* Assets.xcassets in Resources */,
 				526BF25420449FBD0052BC19 /* Main.storyboard in Resources */,
@@ -230,7 +231,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5151BDF205EE9CC008F20EB /* rawpixel-com-570908-unsplash.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
