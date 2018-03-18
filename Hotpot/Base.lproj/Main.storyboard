@@ -35,11 +35,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer cancelsTouchesInView="NO" direction="left" id="GNJ-av-DPa">
                     <connections>
-                        <segue destination="PDl-BB-xJg" kind="show" id="7ei-4h-o8r"/>
+                        <segue destination="PDl-BB-xJg" kind="presentation" modalTransitionStyle="flipHorizontal" id="7ei-4h-o8r"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="473" y="34"/>
+            <point key="canvasLocation" x="454" y="34"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Cwx-Uy-FZZ">
@@ -49,10 +49,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Awq-GF-wFz"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7ne-rc-lsa" appends="YES" id="4dB-us-Jkn"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0GP-vH-1GI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="7ne-rc-lsa">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="flipHorizontal" id="hfh-Ym-jX3"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1314" y="34"/>
         </scene>
