@@ -28,52 +28,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="dvm-9v-Pnl">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="Menu Filled-50" id="JuR-H6-z4R"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IDq-aI-HJJ"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="menuButton" destination="JuR-H6-z4R" id="6IH-sC-eFI"/>
-                        <segue destination="vpi-QF-Do4" kind="popoverPresentation" popoverAnchorBarButtonItem="IDq-aI-HJJ" id="N6O-Xz-gei">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EiD-Q1-UA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="404" y="36"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hotpot" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rawpixel-com-570908-unsplash.jpg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eCf-KR-eNk">
-                                <rect key="frame" x="0.0" y="116" width="375" height="194"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.80392156862745101" green="0.72549019607843135" blue="0.76862745098039209" alpha="0.75704225352112675" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <gestureRecognizers/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="5zk-fP-G2I">
-                        <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="Menu Filled-50" id="1XE-6b-6L3"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Afx-2M-b6N">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IDq-aI-HJJ">
                             <connections>
-                                <segue destination="vpi-QF-Do4" kind="popoverPresentation" popoverAnchorBarButtonItem="Afx-2M-b6N" id="XEw-av-X26">
+                                <segue destination="vpi-QF-Do4" kind="popoverPresentation" popoverAnchorBarButtonItem="IDq-aI-HJJ" id="N0g-Vg-gP0">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="JuR-H6-z4R" id="6IH-sC-eFI"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EiD-Q1-UA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="-768"/>
+            <point key="canvasLocation" x="404" y="36"/>
         </scene>
         <!--Pop Over View Controller-->
         <scene sceneID="zAp-GA-PmB">
@@ -239,8 +208,5 @@
         <image name="Menu Filled-50" width="24" height="24"/>
         <image name="rawpixel-com-570908-unsplash.jpg" width="5000" height="3017"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="XEw-av-X26"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.1280724926548944" blue="0.058129116358554667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
