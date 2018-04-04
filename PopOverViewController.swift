@@ -70,11 +70,6 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        // Apply radius to Popupview
-        Popupview.layer.cornerRadius = 10
-        Popupview.layer.masksToBounds = true
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
