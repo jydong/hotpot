@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		12CBE1DABF36DC366DBDB359 /* Pods_HotpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC7921D7DE8FC509538F875 /* Pods_HotpotTests.framework */; };
 		523CD0D52072BF27006002CC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523CD0D32072BF26006002CC /* SWRevealViewController.m */; };
-		523CD0D72072D78B006002CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523CD0D62072D78B006002CC /* ViewController.swift */; };
 		526BF24F20449FBD0052BC19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BF24E20449FBD0052BC19 /* AppDelegate.swift */; };
 		526BF25420449FBD0052BC19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526BF25220449FBD0052BC19 /* Main.storyboard */; };
 		526BF25620449FBD0052BC19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526BF25520449FBD0052BC19 /* Assets.xcassets */; };
@@ -19,6 +18,7 @@
 		796A62D3205F47930003B5E9 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796A62D2205F47930003B5E9 /* PopOverViewController.swift */; };
 		79734A2A2072BCC7003A5C5E /* AddNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A292072BCC7003A5C5E /* AddNotesViewController.swift */; };
 		79734A2B2072BE91003A5C5E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79734A262072B6CE003A5C5E /* Model.xcdatamodeld */; };
+		79734A302075A189003A5C5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A2F2075A189003A5C5E /* ViewController.swift */; };
 		D1D1BCD8DB1100B83CE516D3 /* Pods_Hotpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBBEFA463EC4D7A4D9CDD71 /* Pods_Hotpot.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,10 +35,8 @@
 /* Begin PBXFileReference section */
 		05CA77A5B7781D982A2044BC /* Pods-Hotpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hotpot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hotpot/Pods-Hotpot.release.xcconfig"; sourceTree = "<group>"; };
 		4AD32A8A3233353F0BBF8F58 /* Pods-Hotpot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hotpot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hotpot/Pods-Hotpot.debug.xcconfig"; sourceTree = "<group>"; };
-		523CD0D22072BF26006002CC /* Hotpot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hotpot-Bridging-Header.h"; sourceTree = "<group>"; };
 		523CD0D32072BF26006002CC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		523CD0D42072BF26006002CC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		523CD0D62072D78B006002CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		526BF24B20449FBD0052BC19 /* Hotpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hotpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		526BF24E20449FBD0052BC19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		526BF25320449FBD0052BC19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,6 +50,8 @@
 		796A62D2205F47930003B5E9 /* PopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
 		79734A272072B6CE003A5C5E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		79734A292072BCC7003A5C5E /* AddNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesViewController.swift; sourceTree = "<group>"; };
+		79734A2F2075A189003A5C5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		79734A312075A236003A5C5E /* Hotpot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hotpot-Bridging-Header.h"; sourceTree = "<group>"; };
 		ACBC994C4E264629DFF5A488 /* Pods-HotpotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotpotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HotpotTests/Pods-HotpotTests.release.xcconfig"; sourceTree = "<group>"; };
 		DBC7921D7DE8FC509538F875 /* Pods_HotpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47110F6C8237814B66E3F11 /* Pods-HotpotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotpotTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HotpotTests/Pods-HotpotTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +107,7 @@
 				526BF24C20449FBD0052BC19 /* Products */,
 				87E8D3764FAC953B5B97B6BD /* Pods */,
 				41A46082239B2EE64980A0C7 /* Frameworks */,
+				79734A2E2075A004003A5C5E /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +131,8 @@
 				526BF25720449FBD0052BC19 /* LaunchScreen.storyboard */,
 				526BF25A20449FBD0052BC19 /* Info.plist */,
 				79734A262072B6CE003A5C5E /* Model.xcdatamodeld */,
+				79734A2F2075A189003A5C5E /* ViewController.swift */,
+				79734A312075A236003A5C5E /* Hotpot-Bridging-Header.h */,
 			);
 			path = Hotpot;
 			sourceTree = "<group>";
@@ -141,6 +144,13 @@
 				526BF26520449FBE0052BC19 /* Info.plist */,
 			);
 			path = HotpotTests;
+			sourceTree = "<group>";
+		};
+		79734A2E2075A004003A5C5E /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		87E8D3764FAC953B5B97B6BD /* Pods */ = {
@@ -364,12 +374,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				526BF25120449FBD0052BC19 /* ViewController.swift in Sources */,
 				79734A2A2072BCC7003A5C5E /* AddNotesViewController.swift in Sources */,
 				79734A2B2072BE91003A5C5E /* Model.xcdatamodeld in Sources */,
 				526BF24F20449FBD0052BC19 /* AppDelegate.swift in Sources */,
 				796A62D3205F47930003B5E9 /* PopOverViewController.swift in Sources */,
-				523CD0D72072D78B006002CC /* ViewController.swift in Sources */,
+				79734A302075A189003A5C5E /* ViewController.swift in Sources */,
 				523CD0D52072BF27006002CC /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

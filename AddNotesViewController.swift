@@ -21,7 +21,10 @@ class AddNotesViewController: UIViewController {
     }
     
     @IBAction func addNotes(_ sender: UIButton) {
-
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entry = Entry(context: context)
+        entry.note = notesTextField.text!
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
     
     /*
