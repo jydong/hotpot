@@ -12,12 +12,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     //@IBOutlet weak var menuButton: UIBarButtonItem!
     
+//    var entry:[Entry]? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         sideMenus()
+        
+//        CoreDataHandler.saveObject(note: "apple")
+//        entry = CoreDataHandler.fetchObject()
+//        
+//        for i in entry!{
+//            print(i.note)
+//        }
         
         // Do any additional setup after loading the view.
     }

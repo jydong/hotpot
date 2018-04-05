@@ -19,6 +19,7 @@
 		79734A2A2072BCC7003A5C5E /* AddNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A292072BCC7003A5C5E /* AddNotesViewController.swift */; };
 		79734A2B2072BE91003A5C5E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79734A262072B6CE003A5C5E /* Model.xcdatamodeld */; };
 		79734A302075A189003A5C5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A2F2075A189003A5C5E /* ViewController.swift */; };
+		79734A332075B13C003A5C5E /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A322075B13C003A5C5E /* CoreDataHandler.swift */; };
 		D1D1BCD8DB1100B83CE516D3 /* Pods_Hotpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBBEFA463EC4D7A4D9CDD71 /* Pods_Hotpot.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		79734A292072BCC7003A5C5E /* AddNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesViewController.swift; sourceTree = "<group>"; };
 		79734A2F2075A189003A5C5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79734A312075A236003A5C5E /* Hotpot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hotpot-Bridging-Header.h"; sourceTree = "<group>"; };
+		79734A322075B13C003A5C5E /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
 		ACBC994C4E264629DFF5A488 /* Pods-HotpotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotpotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HotpotTests/Pods-HotpotTests.release.xcconfig"; sourceTree = "<group>"; };
 		DBC7921D7DE8FC509538F875 /* Pods_HotpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47110F6C8237814B66E3F11 /* Pods-HotpotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotpotTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HotpotTests/Pods-HotpotTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				79734A262072B6CE003A5C5E /* Model.xcdatamodeld */,
 				79734A2F2075A189003A5C5E /* ViewController.swift */,
 				79734A312075A236003A5C5E /* Hotpot-Bridging-Header.h */,
+				79734A322075B13C003A5C5E /* CoreDataHandler.swift */,
 			);
 			path = Hotpot;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79734A332075B13C003A5C5E /* CoreDataHandler.swift in Sources */,
 				79734A2A2072BCC7003A5C5E /* AddNotesViewController.swift in Sources */,
 				79734A2B2072BE91003A5C5E /* Model.xcdatamodeld in Sources */,
 				526BF24F20449FBD0052BC19 /* AppDelegate.swift in Sources */,
