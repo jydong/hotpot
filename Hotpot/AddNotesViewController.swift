@@ -1,4 +1,5 @@
-//
+//  Corresponding to the AddNoteview which shows up after the user pressing the addnote button from the popoverview
+//  Has a text entering field and a addnote button for saving the text entered
 //  AddNotesViewController.swift
 //  Hotpot
 //
@@ -7,27 +8,39 @@
 //
 
 import UIKit
-
+import CoreData
 class AddNotesViewController: UIViewController {
-
+    //field for notes
     @IBOutlet weak var notesTextField: UITextField!
     
     @IBOutlet weak var test: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    //try to save the notes after the user press the addnote button
     @IBAction func addNotes(_ sender: UIButton) {
         if let string = notesTextField.text {
-            test.text = string
+        test.text = string
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let newNote = NSEntityDescription.insertNewObject(forEntityName: "Entry", into: context)
+        newNote.setValue(string, forKey: "note")
+        do
+        {
+            try context.save()
+            print("save")
         }
-        
+        catch{
+            
+        }
+    }
         
         
 //        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

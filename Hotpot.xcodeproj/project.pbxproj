@@ -92,8 +92,6 @@
 		526BF24220449FBD0052BC19 = {
 			isa = PBXGroup;
 			children = (
-				79734A292072BCC7003A5C5E /* AddNotesViewController.swift */,
-				796A62D2205F47930003B5E9 /* PopOverViewController.swift */,
 				526BF24D20449FBD0052BC19 /* Hotpot */,
 				526BF26220449FBE0052BC19 /* HotpotTests */,
 				526BF24C20449FBD0052BC19 /* Products */,
@@ -116,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				526BF24E20449FBD0052BC19 /* AppDelegate.swift */,
+				796A62D2205F47930003B5E9 /* PopOverViewController.swift */,
+				79734A292072BCC7003A5C5E /* AddNotesViewController.swift */,
 				526BF25220449FBD0052BC19 /* Main.storyboard */,
 				5226DD4B2076EC0600F4BEFD /* SWRevealViewController.h */,
 				5226DD4C2076EC0700F4BEFD /* SWRevealViewController.m */,

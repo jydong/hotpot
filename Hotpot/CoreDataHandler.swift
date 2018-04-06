@@ -1,4 +1,4 @@
-//
+//  Deals with saving and fetching contents into and from the database
 //  CoreDataHandler.swift
 //  Hotpot
 //
@@ -14,7 +14,7 @@ class CoreDataHandler: NSObject  {
         let appleDelegate = UIApplication.shared.delegate as! AppDelegate
         return appleDelegate.persistentContainer.viewContext
     }
-    
+    //saving
     class func saveObject(note: String) -> Bool{
         let context = CoreDataHandler.getContext()
         let entry = NSEntityDescription.entity(forEntityName: "Entry", in: context)
@@ -29,7 +29,7 @@ class CoreDataHandler: NSObject  {
             return false
         }
     }
-    
+    //fetching
     class func fetchObject() -> [Entry]?{
         let context = getContext()
         var entry:[Entry]? = nil

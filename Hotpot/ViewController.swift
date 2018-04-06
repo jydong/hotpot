@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreData
 class ViewController: UIViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     //@IBOutlet weak var menuButton: UIBarButtonItem!
@@ -20,7 +20,24 @@ class ViewController: UIViewController {
         
         
         sideMenus()
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Entry")
+        request.returnsObjectsAsFaults = false
+        do{
+            let result = try context.fetch(request)
+            if result.count > 0{
+                for res in result as! [NSManagedObject]
+                {
+                    if let notes = res.value(forKey: "note") as? String{
+                        print (notes)
+                    }
+                }
+            }
+        }
+        catch{
+            
+        }
 //        CoreDataHandler.saveObject(note: "apple")
 //        entry = CoreDataHandler.fetchObject()
 //        
