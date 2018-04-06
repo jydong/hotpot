@@ -7,28 +7,50 @@
 //
 
 import UIKit
+import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    //@IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
     
-//    var entry:[Entry]? = nil
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    
+    // store an array of entries
+    //var entries:[NSManagedObject] = []
+    var entries:[Entry] = []
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        tableView.register(UITableViewCell.self,
+//                           forCellReuseIdentifier: "Cell")
+        tableView.delegate = self
+        tableView.dataSource = self
         
         sideMenus()
         
-//        CoreDataHandler.saveObject(note: "apple")
-//        entry = CoreDataHandler.fetchObject()
-//        
-//        for i in entry!{
-//            print(i.note)
+        
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName:"Entry")
+//        request.returnsObjectsAsFaults = false
+//        do{
+//            let result = try context.fetch(request)
+//            if result.count > 0 {
+//                for res in result as! [NSManagedObject] {
+//                    if let a = res.value(forKey:"amount") as? String{
+//                        print(a)
+//                    }
+//                }
+//            }
+//        }
+//        catch{
+//
 //        }
         
-        // Do any additional setup after loading the view.
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,17 +61,83 @@ class ViewController: UIViewController {
     
     func sideMenus() {
         if revealViewController() != nil {
-            
-            
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             revealViewController().rearViewRevealWidth = 275
             revealViewController().rightViewRevealWidth = 160
-            
-            
+ 
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
+        tableView.reloadData()
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return entries.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+
+        let entry = entries[indexPath.row]
+        print(entry)
+
+        if let myName = entry.amount {
+            cell.textLabel?.text = myName
+        }
+
+        return cell
+    }
+
+    func getData() {
+        do {
+            entries = try context.fetch(Entry.fetchRequest())
+        }
+        catch {
+            print("Fetching Failed")
+        }
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let entry = entries[indexPath.row]
+            context.delete(entry)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+
+            do {
+                entries = try context.fetch(Entry.fetchRequest())
+            }
+            catch {
+                print("Fetching Failed")
+            }
+        }
+        tableView.reloadData()
     }
 
 
 }
+
+//// MARK: - UITableViewDataSource
+//extension ViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView,
+//                   numberOfRowsInSection section: Int) -> Int {
+//        return entries.count
+//    }
+//
+//    func tableView(_ tableView: UITableView,
+//                   cellForRowAt indexPath: IndexPath)
+//        -> UITableViewCell {
+//
+//            let entry = entries[indexPath.row]
+//            let cell =
+//                tableView.dequeueReusableCell(withIdentifier: "Cell",
+//                                              for: indexPath)
+//            cell.textLabel?.text =
+//                entry.value(forKeyPath: "amount") as? String
+//            return cell
+//    }
+//}
+

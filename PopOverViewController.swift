@@ -7,8 +7,9 @@
 //
 
 import UIKit
-
+import CoreData
 class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+    
     
     @IBOutlet weak var Popupview: UIView!
     
@@ -77,6 +78,21 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
          noteField.resignFirstResponder()
         
     }
+
+    
+    // save popup
+    @IBAction func savePopup(_ sender: Any) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entry = Entry(context: context) // Link Entry & Context
+        entry.amount = numberField.text!
+        
+        // Save the data to coredata
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        let _ = navigationController?.popViewController(animated: true)
+    }
+    
+    
     
     // Close PopUp
     @IBAction func closePopup(_ sender: Any) {
