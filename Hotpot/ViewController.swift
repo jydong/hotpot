@@ -13,8 +13,9 @@ class ViewController: UIViewController {
     //@IBOutlet weak var menuButton: UIBarButtonItem!
     
 //    var entry:[Entry]? = nil
-    
-    
+
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var enties:[Entry] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
