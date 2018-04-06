@@ -213,15 +213,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add notes"/>
                                 <connections>
-                                    <action selector="addNotes:" destination="sb6-mY-4Cg" eventType="touchUpInside" id="gNF-vC-jaD"/>
+                                    <action selector="addNotes:" destination="sb6-mY-4Cg" eventType="touchUpInside" id="yCX-sU-1Va"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs2-Wb-cnJ">
+                                <rect key="frame" x="75" y="76" width="201" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3D3-Kf-O5N"/>
                     </view>
                     <connections>
                         <outlet property="notesTextField" destination="025-6z-qOZ" id="vlg-1l-Ute"/>
+                        <outlet property="test" destination="fs2-Wb-cnJ" id="fKS-sJ-kWU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ysW-Bw-53y" userLabel="First Responder" sceneMemberID="firstResponder"/>

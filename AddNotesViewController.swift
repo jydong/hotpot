@@ -11,6 +11,9 @@ import UIKit
 class AddNotesViewController: UIViewController {
 
     @IBOutlet weak var notesTextField: UITextField!
+    
+    @IBOutlet weak var test: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,10 +24,16 @@ class AddNotesViewController: UIViewController {
     }
     
     @IBAction func addNotes(_ sender: UIButton) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let entry = Entry(context: context)
-        entry.note = notesTextField.text!
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        if let string = notesTextField.text {
+            test.text = string
+        }
+        
+        
+        
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        let entry = Entry(context: context)
+//        entry.note = notesTextField.text!
+//        (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
     
     /*
