@@ -26,7 +26,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var noteField: UITextField!
     
     let currency = ["USD", "CAD", "CNY", "EUR", "GBP", "JPY"]
-    let category = ["Food", "Housing", "Transport", "Medical"]
+    let category = ["Food", "Housing", "Transport", "Shopping", "Health", "Travel", "Bills", "Investments"]
     
     var selectedCur = "USD"
     var selectedCat = "Food"

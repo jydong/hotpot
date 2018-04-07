@@ -88,19 +88,46 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //cell.textLabel?.text = entries[(indexPath as NSIndexPath).row]
 
         var displayedString = ""
+        var emoji = "🍔"
+        
+       
         
         if let cur = entry.currency {
-            displayedString = "\("    ")\(cur)"
+            displayedString = "\("      ")\(cur)"
         }
         
         if let a = entry.amount {
             displayedString = "\(displayedString)\(" ")\(a)"
         }
         if let cat = entry.category {
-            displayedString = "\(displayedString)\n\("🍔")\(cat)"
+            if entry.category == "food" {
+                emoji = "🍔"
+            }
+            else if entry.category == "Housing" {
+                emoji = "🏠"
+            }
+            else if entry.category == "Transport" {
+                emoji = "🚗"
+            }
+            else if entry.category == "Shopping" {
+                emoji = "👠"
+            }
+            else if entry.category == "Health" {
+                emoji = "🏥"
+            }
+            else if entry.category == "Travel" {
+                emoji = "✈️"
+            }
+            else if entry.category == "Bills" {
+                emoji = "📞"
+            }
+            else if entry.category == "Investments" {
+                emoji = "💰"
+            }
+            displayedString = "\(displayedString)\n\(emoji)\(" ")\(cat)"
         }
         if let n = entry.note {
-            displayedString = "\(displayedString)\n\("    ")\(n)"
+            displayedString = "\(displayedString)\n\("      ")\(n)"
         }
         
 
