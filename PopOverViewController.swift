@@ -28,6 +28,9 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     let currency = ["USD", "CAD", "CNY", "EUR", "GBP", "JPY"]
     let category = ["Food", "Housing", "Transport", "Medical"]
     
+    var selectedCur = "USD"
+    var selectedCat = "Food"
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         if pickerView == pickviewCur{
             return 1
@@ -61,9 +64,11 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == pickviewCur{
             label.text = currency[row]
+            selectedCur = currency[row]
         }
         else if pickerView == pickviewCat{
             label2.text = category[row]
+            selectedCat = category[row]
         }
     }
     
@@ -85,6 +90,9 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let entry = Entry(context: context) // Link Entry & Context
         entry.amount = numberField.text!
+        entry.category = selectedCat
+        entry.currency = selectedCur
+        entry.note = noteField.text!
         
         // Save the data to coredata
         (UIApplication.shared.delegate as! AppDelegate).saveContext()

@@ -84,10 +84,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         let entry = entries[indexPath.row]
         print(entry)
+        
+        //cell.textLabel?.text = entries[(indexPath as NSIndexPath).row]
 
-        if let myName = entry.amount {
-            cell.textLabel?.text = myName
+        var displayedString = ""
+        
+        if let cur = entry.currency {
+            displayedString = cur
         }
+        
+        if let a = entry.amount {
+            displayedString = "\(displayedString)\(" ")\(a)"
+        }
+        if let cat = entry.category {
+            displayedString = "\(displayedString)\n\(cat)"
+        }
+        if let n = entry.note {
+            displayedString = "\(displayedString)\n\(n)"
+        }
+        
+
+        cell.textLabel?.text = displayedString
+        cell.textLabel?.numberOfLines = 0
+        
+//        if let a = entry.amount {
+//            cell.textLabel?.text = "\(a)\n\(a)"
+//            cell.textLabel?.numberOfLines = 0
+//        }
 
         return cell
     }
