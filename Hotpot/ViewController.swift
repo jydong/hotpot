@@ -90,17 +90,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var displayedString = ""
         
         if let cur = entry.currency {
-            displayedString = cur
+            displayedString = "\("    ")\(cur)"
         }
         
         if let a = entry.amount {
             displayedString = "\(displayedString)\(" ")\(a)"
         }
         if let cat = entry.category {
-            displayedString = "\(displayedString)\n\(cat)"
+            displayedString = "\(displayedString)\n\("🍔")\(cat)"
         }
         if let n = entry.note {
-            displayedString = "\(displayedString)\n\(n)"
+            displayedString = "\(displayedString)\n\("    ")\(n)"
         }
         
 
