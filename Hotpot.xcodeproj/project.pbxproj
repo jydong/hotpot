@@ -16,10 +16,10 @@
 		526BF26420449FBE0052BC19 /* HotpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BF26320449FBE0052BC19 /* HotpotTests.swift */; };
 		52BC1B90205EF24B00EAAA15 /* rawpixel-com-570908-unsplash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F50130AE205EDBB100CF7350 /* rawpixel-com-570908-unsplash.jpg */; };
 		796A62D3205F47930003B5E9 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796A62D2205F47930003B5E9 /* PopOverViewController.swift */; };
-		79734A2A2072BCC7003A5C5E /* AddNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A292072BCC7003A5C5E /* AddNotesViewController.swift */; };
 		79734A2B2072BE91003A5C5E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79734A262072B6CE003A5C5E /* Model.xcdatamodeld */; };
 		79734A302075A189003A5C5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A2F2075A189003A5C5E /* ViewController.swift */; };
 		79734A332075B13C003A5C5E /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A322075B13C003A5C5E /* CoreDataHandler.swift */; };
+		79DED98A20795C8500E94512 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DED98920795C8500E94512 /* SearchTableViewController.swift */; };
 		D1D1BCD8DB1100B83CE516D3 /* Pods_Hotpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBBEFA463EC4D7A4D9CDD71 /* Pods_Hotpot.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,10 +50,10 @@
 		6CBBEFA463EC4D7A4D9CDD71 /* Pods_Hotpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hotpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		796A62D2205F47930003B5E9 /* PopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
 		79734A272072B6CE003A5C5E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		79734A292072BCC7003A5C5E /* AddNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotesViewController.swift; sourceTree = "<group>"; };
 		79734A2F2075A189003A5C5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79734A312075A236003A5C5E /* Hotpot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hotpot-Bridging-Header.h"; sourceTree = "<group>"; };
 		79734A322075B13C003A5C5E /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
+		79DED98920795C8500E94512 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		ACBC994C4E264629DFF5A488 /* Pods-HotpotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotpotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HotpotTests/Pods-HotpotTests.release.xcconfig"; sourceTree = "<group>"; };
 		DBC7921D7DE8FC509538F875 /* Pods_HotpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47110F6C8237814B66E3F11 /* Pods-HotpotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotpotTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HotpotTests/Pods-HotpotTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,8 +92,6 @@
 		526BF24220449FBD0052BC19 = {
 			isa = PBXGroup;
 			children = (
-				79734A292072BCC7003A5C5E /* AddNotesViewController.swift */,
-				796A62D2205F47930003B5E9 /* PopOverViewController.swift */,
 				526BF24D20449FBD0052BC19 /* Hotpot */,
 				526BF26220449FBE0052BC19 /* HotpotTests */,
 				526BF24C20449FBD0052BC19 /* Products */,
@@ -127,6 +125,8 @@
 				79734A2F2075A189003A5C5E /* ViewController.swift */,
 				79734A312075A236003A5C5E /* Hotpot-Bridging-Header.h */,
 				79734A322075B13C003A5C5E /* CoreDataHandler.swift */,
+				796A62D2205F47930003B5E9 /* PopOverViewController.swift */,
+				79DED98920795C8500E94512 /* SearchTableViewController.swift */,
 			);
 			path = Hotpot;
 			sourceTree = "<group>";
@@ -370,11 +370,11 @@
 			files = (
 				5226DD4D2076EC0700F4BEFD /* SWRevealViewController.m in Sources */,
 				79734A332075B13C003A5C5E /* CoreDataHandler.swift in Sources */,
-				79734A2A2072BCC7003A5C5E /* AddNotesViewController.swift in Sources */,
 				79734A2B2072BE91003A5C5E /* Model.xcdatamodeld in Sources */,
 				526BF24F20449FBD0052BC19 /* AppDelegate.swift in Sources */,
 				796A62D3205F47930003B5E9 /* PopOverViewController.swift in Sources */,
 				79734A302075A189003A5C5E /* ViewController.swift in Sources */,
+				79DED98A20795C8500E94512 /* SearchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

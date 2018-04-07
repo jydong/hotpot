@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
@@ -28,6 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //                           forCellReuseIdentifier: "Cell")
         tableView.delegate = self
         tableView.dataSource = self
+        
         
         sideMenus()
         
