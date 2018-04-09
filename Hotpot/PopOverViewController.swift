@@ -6,6 +6,8 @@
 //  Copyright © 2018 Jingyan Dong. All rights reserved.
 //
 
+// This file will display a popover page where the user can enter a new record of expense. The inputs include the amount of expense, currency type, category, and additional comments.
+
 import UIKit
 import CoreData
 class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
@@ -31,6 +33,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     var selectedCur = "USD"
     var selectedCat = "Food"
     
+    //return the number of components based on the pickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         if pickerView == pickviewCur{
             return 1
@@ -41,6 +44,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return 0
     }
     
+    //return the contents of the selected row
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == pickviewCur{
             return currency[row]
@@ -51,6 +55,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return ""
     }
     
+    //return the length of the pickerView
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == pickviewCur{
             return currency.count
@@ -61,6 +66,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return 0
     }
     
+    //set the label to the value that is gotten from the pickerView
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == pickviewCur{
             label.text = currency[row]
@@ -78,6 +84,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
     }
     
+    //touch on the screen will hide the keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         numberField.resignFirstResponder()
          noteField.resignFirstResponder()
