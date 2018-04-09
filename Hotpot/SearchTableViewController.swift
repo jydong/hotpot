@@ -9,18 +9,13 @@
 import UIKit
 import CoreData
 
-class SearchTableViewController: UITableViewController, UISearchResultsUpdating {
+class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var entries:[Entry] = []
-    
-    var filteredEntries = [Entry]()
+    var filteredEntries:[Entry] = []
 
-    
-    var notes:[String] = []
-//    var notes = ["food", "gs", "sd", " djdj", "fdfsad"]
-    var filteredNotes = [String]()
     
     var searchController: UISearchController!
     var resultController = UITableViewController()
@@ -28,7 +23,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // get all notes
 
         self.resultController.tableView.dataSource = self
         self.resultController.tableView.delegate = self
@@ -36,32 +30,62 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         self.searchController = UISearchController(searchResultsController: self.resultController)
         self.tableView.tableHeaderView = self.searchController.searchBar
         self.searchController.searchResultsUpdater = self
+        definesPresentationContext = true // remove the white space on top of the cells
+        
+        self.searchController.searchBar.scopeButtonTitles = ["All", "USD"]
+        self.searchController.searchBar.delegate = self
+        
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier:"cell")
+        
         
     }
-    func updateSearchResults(for searchController: UISearchController) {
-        //Filter through the entries
+    
+    func applySearch(searchText:String, scope:String = "All") {
         
-        self.filteredEntries = []
-        
-        for entry in entries{
-            if entry.note?.range(of: self.searchController.searchBar.text!) != nil{
-                filteredEntries.append(entry)
+        if searchController.searchBar.text! == ""{
+            filteredEntries = entries.filter { entry in
+                let entryCur = (scope == "All") || (entry.currency == scope)
+                return entryCur
             }
+            print("no search input")
         }
+        else{
+            filteredEntries = entries.filter { entry in
+                let entryCur = (scope == "All") || (entry.currency == scope)
+                return entryCur && entry.note!.lowercased().contains(searchText.lowercased())
+            }
+//
+//            filteredEntries = entries.filter{ $0.currency! == scope}
+//            filteredEntries = self.entries.filter{ $0.note!.lowercased().contains(searchText.lowercased()) }
+        }
+        
+        for e in filteredEntries {
+            print("found1")
+        }
+        
 
-        
-//        self.filteredNotes = self.notes.filter{ (note: String) -> Bool in
-//            if note.range(of: self.searchController.searchBar.text!) != nil{
-//                print(filteredNotes)
-//                return true
-//            }else{
-////
-//                return false
-//            }
-//        }
-        
-        //update the results
+        // update the results
         self.resultController.tableView.reloadData()
+        
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+//        // reset filteredEntries
+//        self.filteredEntries = []
+//        self.filteredEntries = self.entries.filter{ $0.note!.lowercased().contains(self.searchController.searchBar.text!.lowercased()) }
+//
+//        // update the results
+//        self.resultController.tableView.reloadData()
+        
+        let searchBar = searchController.searchBar
+        let selectedScope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        applySearch(searchText: searchController.searchBar.text!, scope:selectedScope)
+        
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        applySearch(searchText: searchController.searchBar.text!,scope: searchBar.scopeButtonTitles![selectedScope])
     }
     
 
@@ -74,13 +98,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
 
     override func viewWillAppear(_ animated: Bool) {
         getData()
-//        tableView.reloadData()
+        //tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.tableView{
             return entries.count
-        }else{
+        }
+        else{
             return filteredEntries.count
         }
         
@@ -90,12 +115,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
         let cell = UITableViewCell()
         
         if tableView == self.tableView{
-//            cell.textLabel?.text = self.notes[indexPath.row]
             
             let entry = entries[indexPath.row]
             print(entry)
 
-            //cell.textLabel?.text = entries[(indexPath as NSIndexPath).row]
 
             var displayedString = ""
             var emoji = "🍔"
@@ -186,20 +209,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating 
             }
             cell.textLabel?.text = displayedString
             cell.textLabel?.numberOfLines = 0
-//            cell.textLabel?.text = self.filteredNotes[indexPath.row]
-//            cell.textLabel?.numberOfLines = 0
         }
         
-
         return cell
     }
     
     func getData() {
         do {
             entries = try context.fetch(Entry.fetchRequest())
-//            for entry in entries {
-//                self.notes.append(entry.note!)
-//            }
         }
         catch {
             print("Fetching Failed")
