@@ -10,11 +10,13 @@ import UIKit
 import CoreData
 
 class CoreDataHandler: NSObject  {
+    // get context
     private class func getContext() -> NSManagedObjectContext{
         let appleDelegate = UIApplication.shared.delegate as! AppDelegate
         return appleDelegate.persistentContainer.viewContext
     }
     
+    // save an object
     class func saveObject(note: String) -> Bool{
         let context = CoreDataHandler.getContext()
         let entry = NSEntityDescription.entity(forEntityName: "Entry", in: context)
@@ -25,11 +27,13 @@ class CoreDataHandler: NSObject  {
         do{
             try context.save()
             return true
-        }catch{
+        }
+        catch{
             return false
         }
     }
     
+    // fetch an object
     class func fetchObject() -> [Entry]?{
         let context = getContext()
         var entry:[Entry]? = nil
