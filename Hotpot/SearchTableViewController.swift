@@ -6,6 +6,8 @@
 //  Copyright © 2018 Jingyan Dong. All rights reserved.
 //
 
+//This file will diplay a page with a search bar. The user can search by the keyword in the previous notes to filter the results. The table will be automatically updated while the user typing characters into the search bar. There is also a scope buttons to filter the results by currency type.
+
 import UIKit
 import CoreData
 

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Jingyan Dong. All rights reserved.
 //
 
+//This file will display the main page of the application, with a sidebar botton and a add botton on the nevigation bar and a table of history records. New records added will be appended to the end of the botton. A cell can also be deleted from the table.
+
 import UIKit
 import CoreData
 
