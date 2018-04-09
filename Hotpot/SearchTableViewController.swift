@@ -95,7 +95,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     // MARK: - Table view data source
     override func viewWillAppear(_ animated: Bool) {
         getData()
-        //tableView.reloadData()
+        tableView.reloadData()
     }
     
     // display tableView based on cell count
