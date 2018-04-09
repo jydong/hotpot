@@ -16,11 +16,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    
     // store an array of entries
-    //var entries:[NSManagedObject] = []
     var entries:[Entry] = []
-    
     
     
     override func viewDidLoad() {
@@ -30,28 +27,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.dataSource = self
         
-        
+        // display slider menu page
         sideMenus()
-        
-        
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName:"Entry")
-//        request.returnsObjectsAsFaults = false
-//        do{
-//            let result = try context.fetch(request)
-//            if result.count > 0 {
-//                for res in result as! [NSManagedObject] {
-//                    if let a = res.value(forKey:"amount") as? String{
-//                        print(a)
-//                    }
-//                }
-//            }
-//        }
-//        catch{
-//
-//        }
-        
 
     }
     
@@ -61,6 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    // create a slider menu
     func sideMenus() {
         if revealViewController() != nil {
             menuButton.target = revealViewController()
@@ -77,22 +55,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.reloadData()
     }
 
+    // get tableView cell count
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
     }
 
+    // diplat tableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
 
         let entry = entries[indexPath.row]
         print(entry)
         
-        //cell.textLabel?.text = entries[(indexPath as NSIndexPath).row]
 
         var displayedString = ""
         var emoji = "🍔"
         
-       
         
         if let cur = entry.currency {
             displayedString = "\("      ")\(cur)"
@@ -136,14 +114,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = displayedString
         cell.textLabel?.numberOfLines = 0
         
-//        if let a = entry.amount {
-//            cell.textLabel?.text = "\(a)\n\(a)"
-//            cell.textLabel?.numberOfLines = 0
-//        }
 
         return cell
     }
 
+    // fetch data
     func getData() {
         do {
             entries = try context.fetch(Entry.fetchRequest())
@@ -153,6 +128,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
+    // tableView delete cell
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let entry = entries[indexPath.row]
