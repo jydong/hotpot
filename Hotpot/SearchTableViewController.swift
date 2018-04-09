@@ -23,7 +23,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         self.resultController.tableView.dataSource = self
         self.resultController.tableView.delegate = self
         
@@ -36,12 +35,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         self.searchController.searchBar.delegate = self
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier:"cell")
-        
-        
     }
     
+    // filter entries by search input and scope
     func applySearch(searchText:String, scope:String = "All") {
-        
+        // filter by scope
         if searchController.searchBar.text! == ""{
             filteredEntries = entries.filter { entry in
                 let entryCur = (scope == "All") || (entry.currency == scope)
@@ -49,18 +47,18 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             }
             print("no search input")
         }
+        // filter by search input and scope
         else{
             filteredEntries = entries.filter { entry in
                 let entryCur = (scope == "All") || (entry.currency == scope)
                 return entryCur && entry.note!.lowercased().contains(searchText.lowercased())
             }
-//
 //            filteredEntries = entries.filter{ $0.currency! == scope}
 //            filteredEntries = self.entries.filter{ $0.note!.lowercased().contains(searchText.lowercased()) }
         }
         
-        for e in filteredEntries {
-            print("found1")
+        for _ in filteredEntries {
+            print("found 1 entry")
         }
         
 
@@ -69,6 +67,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
     }
     
+    // update search results, call applySearch
     func updateSearchResults(for searchController: UISearchController) {
 //        // reset filteredEntries
 //        self.filteredEntries = []
@@ -80,10 +79,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         let searchBar = searchController.searchBar
         let selectedScope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         applySearch(searchText: searchController.searchBar.text!, scope:selectedScope)
-        
-        
     }
     
+    //
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         applySearch(searchText: searchController.searchBar.text!,scope: searchBar.scopeButtonTitles![selectedScope])
     }
@@ -95,12 +93,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     }
 
     // MARK: - Table view data source
-
     override func viewWillAppear(_ animated: Bool) {
         getData()
         //tableView.reloadData()
     }
     
+    // display tableView based on cell count
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.tableView{
             return entries.count
@@ -111,9 +109,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
     }
     
+    // display tableView
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
+        // update self.tableView
         if tableView == self.tableView{
             
             let entry = entries[indexPath.row]
@@ -162,11 +162,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             cell.textLabel?.text = displayedString
             cell.textLabel?.numberOfLines = 0
             
-        }else{
+        }
+        // update result tableView
+        else{
             let entry = filteredEntries[indexPath.row]
             print(entry)
-            
-            //cell.textLabel?.text = entries[(indexPath as NSIndexPath).row]
             
             var displayedString = ""
             var emoji = "🍔"
@@ -214,6 +214,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         return cell
     }
     
+    // fetch data
     func getData() {
         do {
             entries = try context.fetch(Entry.fetchRequest())
@@ -222,71 +223,5 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             print("Fetching Failed")
         }
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
-
-
-//extension String {
-//    func contains(find: String) -> Bool{
-//        return self.range(of: find) != nil
-//    }
-//    func containsIgnoringCase(find: String) -> Bool{
-//        return self.range(of: find, options: .caseInsensitive) != nil
-//    }
-//}
 
