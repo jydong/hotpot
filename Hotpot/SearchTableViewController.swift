@@ -83,7 +83,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         applySearch(searchText: searchController.searchBar.text!, scope:selectedScope)
     }
     
-    //
+    // apply search inputs
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         applySearch(searchText: searchController.searchBar.text!,scope: searchBar.scopeButtonTitles![selectedScope])
     }
