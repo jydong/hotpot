@@ -96,7 +96,13 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBAction func savePopup(_ sender: Any) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let entry = Entry(context: context) // Link Entry & Context
-        entry.amount = numberField.text!
+        
+        if let amount = Double(numberField.text!){
+            entry.amount = amount
+        }
+        else{
+            print("cannot convert textfiled input to type double")
+        }
         entry.category = selectedCat
         entry.currency = selectedCur
         entry.note = noteField.text!

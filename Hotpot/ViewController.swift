@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return entries.count
     }
 
-    // diplat tableView
+    // display tableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
 
@@ -78,9 +78,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             displayedString = "\("      ")\(cur)"
         }
         
-        if let a = entry.amount {
-            displayedString = "\(displayedString)\(" ")\(a)"
-        }
+//        if let a = entry.amount {
+//            displayedString = "\(displayedString)\(" ")\(a)"
+//        }
+        
+        displayedString = "\(displayedString)\(" ")\(entry.amount)"
         if let cat = entry.category {
             if entry.category == "food" {
                 emoji = "🍔"
@@ -150,24 +152,5 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 }
 
-//// MARK: - UITableViewDataSource
-//extension ViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView,
-//                   numberOfRowsInSection section: Int) -> Int {
-//        return entries.count
-//    }
-//
-//    func tableView(_ tableView: UITableView,
-//                   cellForRowAt indexPath: IndexPath)
-//        -> UITableViewCell {
-//
-//            let entry = entries[indexPath.row]
-//            let cell =
-//                tableView.dequeueReusableCell(withIdentifier: "Cell",
-//                                              for: indexPath)
-//            cell.textLabel?.text =
-//                entry.value(forKeyPath: "amount") as? String
-//            return cell
-//    }
-//}
+
 

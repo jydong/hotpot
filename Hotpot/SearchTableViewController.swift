@@ -128,9 +128,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 displayedString = "\("      ")\(cur)"
             }
 
-            if let a = entry.amount {
-                displayedString = "\(displayedString)\(" ")\(a)"
-            }
+//            if let a = entry.amount {
+//                displayedString = "\(displayedString)\(" ")\(a)"
+//            }
+            
+            displayedString = "\(displayedString)\(" ")\(entry.amount)"
+            
+            
             if let cat = entry.category {
                 if entry.category == "food" {
                     emoji = "🍔"
@@ -176,9 +180,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 displayedString = "\("      ")\(cur)"
             }
             
-            if let a = entry.amount {
-                displayedString = "\(displayedString)\(" ")\(a)"
-            }
+//            if let a = entry.amount {
+//                displayedString = "\(displayedString)\(" ")\(a)"
+//            }
+            
+            displayedString = "\(displayedString)\(" ")\(entry.amount)"
+            
             if let cat = entry.category {
                 if entry.category == "food" {
                     emoji = "🍔"
