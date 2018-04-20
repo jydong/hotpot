@@ -27,11 +27,16 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     @IBOutlet weak var noteField: UITextField!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     let currency = ["USD", "CAD", "CNY", "EUR", "GBP", "JPY"]
     let category = ["Food", "Housing", "Transport", "Shopping", "Health", "Travel", "Bills", "Investments"]
     
     var selectedCur = "USD"
     var selectedCat = "Food"
+    
+    var budgets:[Budget] = []
+    
     
     //return the number of components based on the pickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -98,14 +103,114 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let entry = Entry(context: context) // Link Entry & Context
         
         if let amount = Double(numberField.text!){
-            entry.amount = amount
+            entry.amount = numberField.text!
         }
         else{
-            print("cannot convert textfiled input to type double")
+            entry.amount = "0.00"
+            print("cannot convert textfield input to type double")
         }
+
         entry.category = selectedCat
         entry.currency = selectedCur
         entry.note = noteField.text!
+        
+        let now = NSDate()
+        let dateFormatter = DateFormatter()
+        
+//        dateFormatter.dateFormat = "MMM dd, yyyy"
+//        let current_date = dateFormatter.string(from:now as Date)
+        entry.date = now as Date
+        
+        dateFormatter.dateFormat = "M"
+        let current_month = Int(dateFormatter.string(from:now as Date))
+        
+
+        dateFormatter.dateFormat = "y"
+        let current_year = Int(dateFormatter.string(from:now as Date))
+            
+        
+        getBudgetData()
+        var new_month = true
+        for b in budgets {
+            let m: Int = Int(b.month)
+            let y: Int = Int(b.year)
+            if (m == current_month!) && (y == current_year!){
+                if let a = entry.amount {
+                    let num = Double(a)!
+                    //b.sum = 0.0
+                    b.sum += num
+                    let category = entry.category!.lowercased()
+                    print(category)
+                    switch category {
+                        case "food":
+                            b.food += num
+                        case "housing":
+                            b.housing += num
+                        case "transport":
+                            b.transport += num
+                        case "travel":
+                            b.travel += num
+                        case "bills":
+                            b.bills += num
+                        case "investments":
+                            b.investments += num
+                        case "shopping":
+                            b.shopping += num
+                        case "health":
+                            b.health += num
+                        default:
+                            break
+                    }
+                    
+                }
+                new_month = false
+                break
+                
+            }
+        }
+        
+        if new_month {
+            let b = Budget(context: context) // Link Budget & Context
+            b.budget = 1000.0
+            b.sum = 0.0
+            b.month = Int16(current_month!)
+            b.year = Int16(current_year!)
+            b.food = 0.0
+            b.housing = 0.0
+            b.transport = 0.0
+            b.travel = 0.0
+            b.bills = 0.0
+            b.investments = 0.0
+            b.shopping = 0.0
+            b.health = 0.0
+            
+            if let a = entry.amount {
+                let num = Double(a)!
+                b.sum += num
+                let category = entry.category!.lowercased()
+                switch category {
+                    case "food":
+                        b.food += num
+                    case "housing":
+                        b.housing += num
+                    case "transport":
+                        b.transport += num
+                    case "travel":
+                        b.travel += num
+                    case "bills":
+                        b.bills += num
+                    case "investments":
+                        b.investments += num
+                    case "shopping":
+                        b.shopping += num
+                    case "health":
+                        b.health += num
+                    default:
+                        break
+                }
+            }
+        }
+        
         
         // Save the data to coredata
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -119,6 +224,16 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBAction func closePopup(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    // fetch budget data
+    func getBudgetData() {
+        do {
+            budgets = try context.fetch(Budget.fetchRequest())
+        }
+        catch {
+            print("Fetching Failed")
+        }
     }
 }
 

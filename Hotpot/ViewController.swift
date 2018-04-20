@@ -21,6 +21,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // store an array of entries
     var entries:[Entry] = []
     
+    var budgets:[Budget] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +33,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // display slider menu page
         sideMenus()
+        
+        //print(budgets)
 
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,7 +60,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewWillAppear(_ animated: Bool) {
         getData()
+        getBudgetData()
         tableView.reloadData()
+        
+        print(budgets)
     }
 
     // get tableView cell count
@@ -67,7 +76,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = UITableViewCell()
 
         let entry = entries[indexPath.row]
-        print(entry)
+        //print(entry)
         
 
         var displayedString = ""
@@ -78,11 +87,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             displayedString = "\("      ")\(cur)"
         }
         
-//        if let a = entry.amount {
-//            displayedString = "\(displayedString)\(" ")\(a)"
-//        }
+        if let a = entry.amount{
+            displayedString = "\(displayedString)\(" ")\(a)"
+        }
         
-        displayedString = "\(displayedString)\(" ")\(entry.amount)"
         if let cat = entry.category {
             if entry.category == "food" {
                 emoji = "🍔"
@@ -122,13 +130,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
 
-    // fetch data
+    // fetch entry data
     func getData() {
         do {
             entries = try context.fetch(Entry.fetchRequest())
         }
         catch {
-            print("Fetching Failed")
+            print("Fetching Entry Data Failed")
+        }
+    }
+    
+    // fetch budget data
+    func getBudgetData() {
+        do {
+            budgets = try context.fetch(Budget.fetchRequest())
+        }
+        catch {
+            print("Fetching Budget Data Failed")
         }
     }
 
@@ -136,7 +154,51 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let entry = entries[indexPath.row]
+            let dateFormatter = DateFormatter()
+            
+            dateFormatter.dateFormat = "M"
+            let deleted_month = Int(dateFormatter.string(from: entry.date!))
+            
+            dateFormatter.dateFormat = "y"
+            let deleted_year = Int(dateFormatter.string(from:entry.date!))
+
+            
+            for b in budgets {
+                let m: Int = Int(b.month)
+                let y: Int = Int(b.year)
+                if (m == deleted_month) && (y == deleted_year){
+                    if let a = entry.amount {
+                        let num = Double(a)!
+                        b.sum -= num
+                        let category = entry.category!
+                        switch category {
+                            case "food":
+                                b.food -= num
+                            case "housing":
+                                b.housing -= num
+                            case "transport":
+                                b.transport -= num
+                            case "travel":
+                                b.travel -= num
+                            case "bills":
+                                b.bills -= num
+                            case "investments":
+                                b.investments -= num
+                            case "shopping":
+                                b.shopping -= num
+                            case "health":
+                                b.health -= num
+                            default:
+                                break
+                        }
+                    }
+                }
+                break
+            }
+            
+            
             context.delete(entry)
+                        
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
 
             do {

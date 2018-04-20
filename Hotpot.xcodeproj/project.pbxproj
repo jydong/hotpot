@@ -97,7 +97,6 @@
 				526BF24C20449FBD0052BC19 /* Products */,
 				87E8D3764FAC953B5B97B6BD /* Pods */,
 				41A46082239B2EE64980A0C7 /* Frameworks */,
-				79734A2E2075A004003A5C5E /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,13 +137,6 @@
 				526BF26520449FBE0052BC19 /* Info.plist */,
 			);
 			path = HotpotTests;
-			sourceTree = "<group>";
-		};
-		79734A2E2075A004003A5C5E /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		87E8D3764FAC953B5B97B6BD /* Pods */ = {

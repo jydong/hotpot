@@ -119,7 +119,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         if tableView == self.tableView{
             
             let entry = entries[indexPath.row]
-            print(entry)
+            //print(entry)
 
 
             var displayedString = ""
@@ -128,11 +128,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 displayedString = "\("      ")\(cur)"
             }
 
-//            if let a = entry.amount {
-//                displayedString = "\(displayedString)\(" ")\(a)"
-//            }
+            if let a = entry.amount{
+                displayedString = "\(displayedString)\(" ")\(a)"
+            }
             
-            displayedString = "\(displayedString)\(" ")\(entry.amount)"
             
             
             if let cat = entry.category {
@@ -172,7 +171,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         // update result tableView
         else{
             let entry = filteredEntries[indexPath.row]
-            print(entry)
+            //print(entry)
             
             var displayedString = ""
             var emoji = "🍔"
@@ -180,11 +179,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 displayedString = "\("      ")\(cur)"
             }
             
-//            if let a = entry.amount {
-//                displayedString = "\(displayedString)\(" ")\(a)"
-//            }
-            
-            displayedString = "\(displayedString)\(" ")\(entry.amount)"
+            if let a = entry.amount{
+                displayedString = "\(displayedString)\(" ")\(a)"
+            }
             
             if let cat = entry.category {
                 if entry.category == "food" {
