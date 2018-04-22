@@ -119,9 +119,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         // update self.tableView
         if tableView == self.tableView{
             
-            let entry = entries[indexPath.row]
-            //print(entry)
-
+            // display entries in reverse order so that the newest entries are displayed on top
+            let entry = entries.reversed()[indexPath.row]
 
             var displayedString = ""
             var emoji = "🍔"
@@ -171,8 +170,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         }
         // update result tableView
         else{
-            let entry = filteredEntries[indexPath.row]
-            //print(entry)
+            let entry = filteredEntries.reversed()[indexPath.row]
             
             var displayedString = ""
             var emoji = "🍔"

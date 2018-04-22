@@ -81,7 +81,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
 
-        let entry = entries[indexPath.row]
+        // display entries in reverse order so that the newest entries are displayed on top
+        let entry = entries.reversed()[indexPath.row]
         
         
         var displayedString = ""
