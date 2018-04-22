@@ -6,6 +6,7 @@ target 'Hotpot' do
   use_frameworks!
 
   # Pods for Hotpot
+  pod 'Charts'
 
   target 'HotpotTests' do
     inherit! :search_paths
