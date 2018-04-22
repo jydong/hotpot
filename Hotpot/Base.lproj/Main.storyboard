@@ -91,9 +91,9 @@
                         <viewLayoutGuide key="safeArea" id="SbF-EC-MsP"/>
                     </view>
                     <navigationItem key="navigationItem" id="lV9-D0-OtY">
-                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="eUt-u3-wGl">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="7yn-uM-5Ph">
                             <connections>
-                                <action selector="goBack:" destination="Wwv-b3-MyN" id="GZD-cO-0VB"/>
+                                <action selector="goBack:" destination="Wwv-b3-MyN" id="6fp-zq-KWm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

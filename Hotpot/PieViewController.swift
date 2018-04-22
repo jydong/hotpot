@@ -12,12 +12,14 @@ import CoreData
 
 class PieViewController: UIViewController {
     
-    //@IBOutlet weak var chartTitle: UILabel!
+
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var selected_budget:[Budget] = []
 
     @IBOutlet weak var pieChart: PieChartView!
+    
+    let chartTitle = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
     
     var foodDataEntry = PieChartDataEntry (value: 0)
     var transportDataEntry = PieChartDataEntry (value: 0)
@@ -60,11 +62,11 @@ class PieViewController: UIViewController {
         // Access chart description
         if selected_year != nil {
             pieChart.chartDescription?.text = "Report for \(selected_month) \(selected_year!)"
-//            chartTitle.text = "Report for \(selected_month) \(selected_year!)\nMonthly budget: \(selected_budget[0])"
+            chartTitle.text = "Report for \(selected_month) \(selected_year!)\nMonthly budget: \(selected_budget[0])"
         }
         else{
             pieChart.chartDescription?.text = "Report for \(selected_month) 2018"
-//            chartTitle.text = "Report for \(selected_month) 2018 \nMonthly budget: \(selected_budget[0])"
+            chartTitle.text = "Report for \(selected_month) 2018 \nMonthly budget: \(selected_budget[0])"
         }
         
         
@@ -143,10 +145,10 @@ class PieViewController: UIViewController {
     }
     
     // Go back
-//    @IBAction func goBack(_ sender: Any) {
-//        
-//        dismiss(animated: true, completion: nil)
-//    }
+    @IBAction func goBack(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
