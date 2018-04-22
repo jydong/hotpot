@@ -49,11 +49,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             }
             print("no search input")
         }
+            
         // filter by search input and scope
         else{
             filteredEntries = entries.filter { entry in
                 let entryCur = (scope == "All") || (entry.currency == scope)
-                return entryCur && entry.note!.lowercased().contains(searchText.lowercased())
+                return entryCur && (entry.note!.lowercased().contains(searchText.lowercased()) || (entry.category!.lowercased() == (searchText.lowercased())) )
             }
 //            filteredEntries = entries.filter{ $0.currency! == scope}
 //            filteredEntries = self.entries.filter{ $0.note!.lowercased().contains(searchText.lowercased()) }
