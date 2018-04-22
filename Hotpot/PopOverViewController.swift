@@ -110,7 +110,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             print("cannot convert textfield input to type double")
         }
 
-        entry.category = selectedCat
+        entry.category = selectedCat.lowercased()
         entry.currency = selectedCur
         entry.note = noteField.text!
         
@@ -131,16 +131,45 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         getBudgetData()
         var new_month = true
+        var reach_budget = false
+        
         for b in budgets {
             let m: Int = Int(b.month)
             let y: Int = Int(b.year)
             if (m == current_month!) && (y == current_year!){
+                new_month = false
                 if let a = entry.amount {
-                    let num = Double(a)!
-                    //b.sum = 0.0
+                    
+                    var num = Double(a)!
+                    
+//                    b.sum = 0.0
+//                    b.food = 0.0
+//                    b.housing = 0.0
+                    
+                    // convert amount to USD 
+                    if entry.currency == "CAD" {
+                        num = 0.78 * num
+                    }
+                    else if entry.currency == "CNY" {
+                        num = 0.16 * num
+                    }
+                    else if entry.currency == "JPY" {
+                        num = 0.0093 * num
+                    }
+                    else if entry.currency == "EUR" {
+                        num = 1.23 * num
+                    }
+                    else if entry.currency == "GBP" {
+                        num = 1.4 * num
+                    }
+                    else {}
+                
+                    
+                    // update sum
                     b.sum += num
-                    let category = entry.category!.lowercased()
-                    print(category)
+                    
+                    // update category sum
+                    let category = entry.category!
                     switch category {
                         case "food":
                             b.food += num
@@ -159,13 +188,15 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                         case "health":
                             b.health += num
                         default:
-                            break
+                            print("invalid category")
+                    }
+                    // check if the budget of the current month is reached
+                    if b.sum >= b.budget {
+                        reach_budget = true
                     }
                     
+                    break
                 }
-                new_month = false
-                break
-                
             }
         }
         
@@ -184,10 +215,31 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             b.shopping = 0.0
             b.health = 0.0
             
+            // convert amount to USD
             if let a = entry.amount {
-                let num = Double(a)!
+                var num = Double(a)!
+                
+                if entry.currency == "CAD" {
+                    num = 0.78 * num
+                }
+                else if entry.currency == "CNY" {
+                    num = 0.16 * num
+                }
+                else if entry.currency == "JPY" {
+                    num = 0.0093 * num
+                }
+                else if entry.currency == "EUR" {
+                    num = 1.23 * num
+                }
+                else if entry.currency == "GBP" {
+                    num = 1.4 * num
+                }
+                else {}
+                
+                // update sum
                 b.sum += num
-                let category = entry.category!.lowercased()
+                
+                let category = entry.category!
                 switch category {
                     case "food":
                         b.food += num
@@ -215,6 +267,11 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Save the data to coredata
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
+        if reach_budget {
+            createAlert(title: "Do You Like Sausages?", message: "Do you?")
+        }
+        
+        
         let _ = navigationController?.popViewController(animated: true)
     }
     
@@ -234,6 +291,23 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         catch {
             print("Fetching Failed")
         }
+    }
+    
+    func createAlert (title:String, message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        //CREATING ON BUTTON
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            print ("YES")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            print("NO")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
