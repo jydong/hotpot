@@ -132,6 +132,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         getBudgetData()
         var new_month = true
         var reach_budget = false
+        var current_budget = 0.0
         
         for b in budgets {
             let m: Int = Int(b.month)
@@ -193,6 +194,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     // check if the budget of the current month is reached
                     if b.sum >= b.budget {
                         reach_budget = true
+                        current_budget = b.budget
                     }
                     
                     break
@@ -258,20 +260,26 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     case "health":
                         b.health += num
                     default:
-                        break
+                        print("invalid category")
+                }
+                // check if the budget of the current month is reached
+                if b.sum >= b.budget {
+                    reach_budget = true
+                    current_budget = b.budget
                 }
             }
         }
         
         
-        // Save the data to coredata
+        // save data to coredata
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
+        // display a pop up alert box if budget is reached
         if reach_budget {
-            createAlert(title: "Do You Like Sausages?", message: "Do you?")
+            createAlert(title: "You've reached your monthly budget: \(String(format: "%.2f", current_budget)) USD", message: "Change your budget?")
         }
         
-        
+        // return to main page
         let _ = navigationController?.popViewController(animated: true)
     }
     
@@ -299,7 +307,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         //CREATING ON BUTTON
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
-            print ("YES")
+            print ("YES: update budget")
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
@@ -307,7 +315,8 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             print("NO")
         }))
         
-        self.present(alert, animated: true, completion: nil)
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        //self.present(alert, animated: true, completion: nil)
     }
 }
 
