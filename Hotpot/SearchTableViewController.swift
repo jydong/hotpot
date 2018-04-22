@@ -138,25 +138,25 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 if entry.category == "food" {
                     emoji = "🍔"
                 }
-                else if entry.category == "Housing" {
+                else if entry.category == "housing" {
                     emoji = "🏠"
                 }
-                else if entry.category == "Transport" {
+                else if entry.category == "transport" {
                     emoji = "🚗"
                 }
-                else if entry.category == "Shopping" {
+                else if entry.category == "shopping" {
                     emoji = "👠"
                 }
-                else if entry.category == "Health" {
+                else if entry.category == "health" {
                     emoji = "🏥"
                 }
-                else if entry.category == "Travel" {
+                else if entry.category == "travel" {
                     emoji = "✈️"
                 }
-                else if entry.category == "Bills" {
+                else if entry.category == "bills" {
                     emoji = "📞"
                 }
-                else if entry.category == "Investments" {
+                else if entry.category == "investments" {
                     emoji = "💰"
                 }
                 displayedString = "\(displayedString)\n\(emoji)\(" ")\(cat)"
@@ -186,25 +186,25 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 if entry.category == "food" {
                     emoji = "🍔"
                 }
-                else if entry.category == "Housing" {
+                else if entry.category == "housing" {
                     emoji = "🏠"
                 }
-                else if entry.category == "Transport" {
+                else if entry.category == "transport" {
                     emoji = "🚗"
                 }
-                else if entry.category == "Shopping" {
+                else if entry.category == "shopping" {
                     emoji = "👠"
                 }
-                else if entry.category == "Health" {
+                else if entry.category == "health" {
                     emoji = "🏥"
                 }
-                else if entry.category == "Travel" {
+                else if entry.category == "travel" {
                     emoji = "✈️"
                 }
-                else if entry.category == "Bills" {
+                else if entry.category == "bills" {
                     emoji = "📞"
                 }
-                else if entry.category == "Investments" {
+                else if entry.category == "investments" {
                     emoji = "💰"
                 }
                 displayedString = "\(displayedString)\n\(emoji)\(" ")\(cat)"

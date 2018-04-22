@@ -143,6 +143,8 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     
                     var num = Double(a)!
                     
+                    b.budget = 20000
+                    
 //                    b.sum = 0.0
 //                    b.food = 0.0
 //                    b.housing = 0.0
@@ -279,7 +281,6 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             createAlert(title: "You've reached your monthly budget: \(String(format: "%.2f", current_budget)) USD", message: "Change your budget?")
         }
         
-        // return to main page
         let _ = navigationController?.popViewController(animated: true)
     }
     

@@ -44,6 +44,9 @@
                                 <state key="normal" title="Report">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="3Mj-fq-CM7" kind="show" id="FwI-to-YNB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.83897578719999999" green="0.79171800609999998" blue="0.81571382280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -79,7 +82,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prf-Ry-FLI" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="39" y="267" width="297" height="281"/>
+                                <rect key="frame" x="0.0" y="229" width="375" height="319"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -87,7 +90,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="SbF-EC-MsP"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lV9-D0-OtY"/>
+                    <navigationItem key="navigationItem" id="lV9-D0-OtY">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="eUt-u3-wGl">
+                            <connections>
+                                <action selector="goBack:" destination="Wwv-b3-MyN" id="GZD-cO-0VB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="pieChart" destination="prf-Ry-FLI" id="Dfl-hd-q3Y"/>
                     </connections>
