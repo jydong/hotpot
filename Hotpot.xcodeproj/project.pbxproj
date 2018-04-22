@@ -15,12 +15,13 @@
 		526BF25920449FBD0052BC19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526BF25720449FBD0052BC19 /* LaunchScreen.storyboard */; };
 		526BF26420449FBE0052BC19 /* HotpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BF26320449FBE0052BC19 /* HotpotTests.swift */; };
 		52BC1B90205EF24B00EAAA15 /* rawpixel-com-570908-unsplash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F50130AE205EDBB100CF7350 /* rawpixel-com-570908-unsplash.jpg */; };
+		7929531A208D1940003A8CED /* PieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79295319208D1940003A8CED /* PieViewController.swift */; };
 		796A62D3205F47930003B5E9 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796A62D2205F47930003B5E9 /* PopOverViewController.swift */; };
 		79734A2B2072BE91003A5C5E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79734A262072B6CE003A5C5E /* Model.xcdatamodeld */; };
 		79734A302075A189003A5C5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A2F2075A189003A5C5E /* ViewController.swift */; };
 		79734A332075B13C003A5C5E /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A322075B13C003A5C5E /* CoreDataHandler.swift */; };
 		79DED98A20795C8500E94512 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DED98920795C8500E94512 /* SearchTableViewController.swift */; };
-		D1D1BCD8DB1100B83CE516D3 /* Pods_Hotpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBBEFA463EC4D7A4D9CDD71 /* Pods_Hotpot.framework */; };
+		D1D1BCD8DB1100B83CE516D3 /* Pods_Hotpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBBEFA463EC4D7A4D9CDD71 /* Pods_Hotpot.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		526BF26320449FBE0052BC19 /* HotpotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotpotTests.swift; sourceTree = "<group>"; };
 		526BF26520449FBE0052BC19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CBBEFA463EC4D7A4D9CDD71 /* Pods_Hotpot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hotpot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79295319208D1940003A8CED /* PieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieViewController.swift; sourceTree = "<group>"; };
 		796A62D2205F47930003B5E9 /* PopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
 		79734A272072B6CE003A5C5E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		79734A2F2075A189003A5C5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				526BF24E20449FBD0052BC19 /* AppDelegate.swift */,
 				526BF25220449FBD0052BC19 /* Main.storyboard */,
+				79295319208D1940003A8CED /* PieViewController.swift */,
 				5226DD4B2076EC0600F4BEFD /* SWRevealViewController.h */,
 				5226DD4C2076EC0700F4BEFD /* SWRevealViewController.m */,
 				526BF25520449FBD0052BC19 /* Assets.xcassets */,
@@ -162,7 +165,6 @@
 				526BF24820449FBD0052BC19 /* Frameworks */,
 				526BF24920449FBD0052BC19 /* Resources */,
 				3FE5250859E256F41C08B1C6 /* [CP] Embed Pods Frameworks */,
-				08DC833340DDDED2AC12DD05 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,8 +183,6 @@
 				526BF25B20449FBE0052BC19 /* Sources */,
 				526BF25C20449FBE0052BC19 /* Frameworks */,
 				526BF25D20449FBE0052BC19 /* Resources */,
-				D00B4DB0FE9862A26D77E09D /* [CP] Embed Pods Frameworks */,
-				174BAF5959BAF37F5E2388CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,36 +257,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08DC833340DDDED2AC12DD05 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hotpot/Pods-Hotpot-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		174BAF5959BAF37F5E2388CF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HotpotTests/Pods-HotpotTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3D8B63E931D0F91DF377ABE5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -311,9 +281,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Hotpot/Pods-Hotpot-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -338,21 +311,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D00B4DB0FE9862A26D77E09D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HotpotTests/Pods-HotpotTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -367,6 +325,7 @@
 				796A62D3205F47930003B5E9 /* PopOverViewController.swift in Sources */,
 				79734A302075A189003A5C5E /* ViewController.swift in Sources */,
 				79DED98A20795C8500E94512 /* SearchTableViewController.swift in Sources */,
+				7929531A208D1940003A8CED /* PieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

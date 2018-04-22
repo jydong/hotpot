@@ -70,6 +70,32 @@
             </objects>
             <point key="canvasLocation" x="743.20000000000005" y="35.532233883058474"/>
         </scene>
+        <!--Pie View Controller-->
+        <scene sceneID="j76-ac-Lt8">
+            <objects>
+                <viewController id="Wwv-b3-MyN" customClass="PieViewController" customModule="Hotpot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vkn-gZ-ISx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prf-Ry-FLI" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="39" y="267" width="297" height="281"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SbF-EC-MsP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lV9-D0-OtY"/>
+                    <connections>
+                        <outlet property="pieChart" destination="prf-Ry-FLI" id="Dfl-hd-q3Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ctv-Ij-hyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1092" y="828.93553223388312"/>
+        </scene>
         <!--Pop Over View Controller-->
         <scene sceneID="zAp-GA-PmB">
             <objects>
@@ -275,6 +301,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V5r-cn-N0x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2034" y="36"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b57-ZU-Fbf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Mj-fq-CM7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XgT-iq-LcR">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wwv-b3-MyN" kind="relationship" relationship="rootViewController" id="Y9f-KI-giA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3BX-IJ-JHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="260" y="829"/>
         </scene>
     </scenes>
     <resources>

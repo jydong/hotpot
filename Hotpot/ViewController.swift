@@ -10,6 +10,7 @@
 
 import UIKit
 import CoreData
+import Charts
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var menuButton: UIBarButtonItem!
