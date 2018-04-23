@@ -162,7 +162,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             //let budget = budgets[indexPath.row]
-            let entry = entries[indexPath.row]
+            let entry = entries.reversed()[indexPath.row]
             let dateFormatter = DateFormatter()
 
             dateFormatter.dateFormat = "M"
