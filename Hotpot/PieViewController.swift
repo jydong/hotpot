@@ -12,14 +12,15 @@ import CoreData
 
 class PieViewController: UIViewController {
     
-
-    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var selected_budget:[Budget] = []
 
     @IBOutlet weak var pieChart: PieChartView!
     
-    let chartTitle = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+    @IBOutlet weak var chartTitle: UILabel!
+    @IBOutlet weak var currentBudget: UILabel!
+    @IBOutlet weak var currentSum: UILabel!
+    
     
     var foodDataEntry = PieChartDataEntry (value: 0)
     var transportDataEntry = PieChartDataEntry (value: 0)
@@ -62,11 +63,18 @@ class PieViewController: UIViewController {
         // Access chart description
         if selected_year != nil {
             pieChart.chartDescription?.text = "Report for \(selected_month) \(selected_year!)"
+            chartTitle.font = UIFont.boldSystemFont(ofSize:23.0)
             chartTitle.text = "Report for \(selected_month) \(selected_year!)\nMonthly budget: \(selected_budget[0])"
+            currentBudget.text = "Budget: \(String(format: "%.2f",selected_budget[0].budget)) USD"
+            currentSum.text = "Total spending: \(String(format: "%.2f",selected_budget[0].sum)) USD"
         }
         else{
             pieChart.chartDescription?.text = "Report for \(selected_month) 2018"
+            chartTitle.font = UIFont.boldSystemFont(ofSize:23.0)
+            
             chartTitle.text = "Report for \(selected_month) 2018 \nMonthly budget: \(selected_budget[0])"
+            currentBudget.text = "Budget: \(String(format: "%.2f",selected_budget[0].budget)) USD"
+            currentSum.text = "Total spending: \(String(format: "%.2f",selected_budget[0].sum)) USD"
         }
         
         

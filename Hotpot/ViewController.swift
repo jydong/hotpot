@@ -28,8 +28,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.register(UITableViewCell.self,
-//                           forCellReuseIdentifier: "Cell")
+        tableView.register(UITableViewCell.self,
+                           forCellReuseIdentifier: "Cell")
         tableView.delegate = self
         tableView.dataSource = self
         
