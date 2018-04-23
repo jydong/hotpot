@@ -71,7 +71,6 @@ class PieViewController: UIViewController {
         else{
             pieChart.chartDescription?.text = "Report for \(selected_month) 2018"
             chartTitle.font = UIFont.boldSystemFont(ofSize:23.0)
-            
             chartTitle.text = "Report for \(selected_month) 2018 \nMonthly budget: \(selected_budget[0])"
             currentBudget.text = "Budget: \(String(format: "%.2f",selected_budget[0].budget)) USD"
             currentSum.text = "Total spending: \(String(format: "%.2f",selected_budget[0].sum)) USD"

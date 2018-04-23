@@ -143,7 +143,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     
                     var num = Double(a)!
                     
-                    b.budget = 20000
+                    b.budget = 2000
                     
 //                    b.sum = 0.0
 //                    b.food = 0.0
