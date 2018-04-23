@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var budgets:[Budget] = []
     
     
+    // this function will be called when the page is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self,
@@ -39,6 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     }
     
+    // this function is sent to the view controller when the app receives a memory warning.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,6 +59,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    //Notifies the view controller that its view is about to be added to a view hierarchy
     override func viewWillAppear(_ animated: Bool) {
         getData()
         getBudgetData()
@@ -68,10 +71,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             //context.delete(b)
             print("hi")
         }
-//        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-//        getBudgetData()
-//        print("budget count: \(budgets.count)")
-
     }
 
     // get tableView cell count
