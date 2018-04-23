@@ -83,17 +83,16 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
     
-    
+    // this function will be called when the page is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
-    //touch on the screen will hide the keyboard
+    // touch on the screen will hide the keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         numberField.resignFirstResponder()
          noteField.resignFirstResponder()
-        
     }
 
     
@@ -286,9 +285,8 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     
     
-    // Close PopUp
+    // close PopUp and return to the last viewcontroller
     @IBAction func closePopup(_ sender: Any) {
-        
         dismiss(animated: true, completion: nil)
     }
     
@@ -302,6 +300,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
     
+    // show an alert popup window
     func createAlert (title:String, message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -321,6 +320,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
 }
 
+// hide keyboard and return typed data
 extension ViewController : UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

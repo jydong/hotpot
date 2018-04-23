@@ -22,6 +22,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     var searchController: UISearchController!
     var resultController = UITableViewController()
 
+    // this function will be called when the page is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,8 +57,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 let entryCur = (scope == "All") || (entry.currency == scope)
                 return entryCur && (entry.note!.lowercased().contains(searchText.lowercased()) || (entry.category!.lowercased() == (searchText.lowercased())) )
             }
-//            filteredEntries = entries.filter{ $0.currency! == scope}
-//            filteredEntries = self.entries.filter{ $0.note!.lowercased().contains(searchText.lowercased()) }
         }
         
         for _ in filteredEntries {
@@ -72,13 +71,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     // update search results, call applySearch
     func updateSearchResults(for searchController: UISearchController) {
-//        // reset filteredEntries
-//        self.filteredEntries = []
-//        self.filteredEntries = self.entries.filter{ $0.note!.lowercased().contains(self.searchController.searchBar.text!.lowercased()) }
-//
-//        // update the results
-//        self.resultController.tableView.reloadData()
-        
         let searchBar = searchController.searchBar
         let selectedScope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         applySearch(searchText: searchController.searchBar.text!, scope:selectedScope)
@@ -89,13 +81,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         applySearch(searchText: searchController.searchBar.text!,scope: searchBar.scopeButtonTitles![selectedScope])
     }
     
-
+    // this function is sent to the view controller when the app receives a memory warning.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
+    // get the entry data and reload data
     override func viewWillAppear(_ animated: Bool) {
         getData()
         tableView.reloadData()
@@ -109,7 +102,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         else{
             return filteredEntries.count
         }
-        
     }
     
     // display tableView
@@ -131,7 +123,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             if let a = entry.amount{
                 displayedString = "\(displayedString)\(" ")\(a)"
             }
-            
             
             
             if let cat = entry.category {
