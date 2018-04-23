@@ -6,6 +6,8 @@
 //  Copyright © 2018 Jingyan Dong. All rights reserved.
 //
 
+//This file will display a new window showing the pie charts for monthly expenses by categories.
+
 import UIKit
 import Charts
 import CoreData
@@ -21,7 +23,7 @@ class PieViewController: UIViewController {
     @IBOutlet weak var currentBudget: UILabel!
     @IBOutlet weak var currentSum: UILabel!
     
-    
+    //init the pie chart data entries
     var foodDataEntry = PieChartDataEntry (value: 0)
     var transportDataEntry = PieChartDataEntry (value: 0)
     var housingDataEntry = PieChartDataEntry (value: 0)
@@ -39,7 +41,8 @@ class PieViewController: UIViewController {
     var selected_year: Int = 2018
     
     
-    
+    //This function will be called once the page is loaded
+    //The pie chart will be displayed immediately
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,7 +79,7 @@ class PieViewController: UIViewController {
             currentSum.text = "Total spending: \(String(format: "%.2f",selected_budget[0].sum)) USD"
         }
         
-        
+        //set the pie chart data entry values and labels
         foodDataEntry.value = selected_budget[0].food
         foodDataEntry.label = "Food"
         
@@ -101,13 +104,15 @@ class PieViewController: UIViewController {
         travelDataEntry.value = selected_budget[0].travel
         travelDataEntry.label = "travel"
         
-
+        //add entries to the entry list
         entries = [foodDataEntry, transportDataEntry, housingDataEntry, healthDataEntry, shoppingDataEntry,
                     billsDataEntry, investmentsDataEntry, travelDataEntry]
         
+        //call updateChartData to get the most recent results and update the chart
         updateChartData()
     }
     
+    //This function sets the colors of pie chart data entries and assigns the data to our pie chart
     func updateChartData(){
         let chartDataSet = PieChartDataSet(values: entries, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
@@ -127,13 +132,14 @@ class PieViewController: UIViewController {
             
         pieChart.data = chartData
     }
-
+    
+    //make sure the controller receive memory warning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //get the current budget
     func getSelectedBudget(month:Int, year:Int){
         do {
             let budgets:[Budget]  = try context.fetch(Budget.fetchRequest())
@@ -151,7 +157,7 @@ class PieViewController: UIViewController {
         }
     }
     
-    // Go back
+    // Go back to the previous page
     @IBAction func goBack(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)

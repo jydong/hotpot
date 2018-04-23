@@ -83,7 +83,6 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -302,6 +301,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
     
+    //pop up a alert screen
     func createAlert (title:String, message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
