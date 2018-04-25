@@ -47,7 +47,6 @@ class PieViewController: UIViewController {
         super.viewDidLoad()
         
         
-        
         let now = NSDate()
         let dateFormatter = DateFormatter()
         

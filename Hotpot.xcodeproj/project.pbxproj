@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12CBE1DABF36DC366DBDB359 /* Pods_HotpotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC7921D7DE8FC509538F875 /* Pods_HotpotTests.framework */; };
+		5223C1D7209109D700ACF1CC /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5223C1D6209109D700ACF1CC /* BudgetViewController.swift */; };
 		5226DD4D2076EC0700F4BEFD /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5226DD4C2076EC0700F4BEFD /* SWRevealViewController.m */; };
 		526BF24F20449FBD0052BC19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BF24E20449FBD0052BC19 /* AppDelegate.swift */; };
 		526BF25420449FBD0052BC19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526BF25220449FBD0052BC19 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		05CA77A5B7781D982A2044BC /* Pods-Hotpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hotpot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hotpot/Pods-Hotpot.release.xcconfig"; sourceTree = "<group>"; };
 		4AD32A8A3233353F0BBF8F58 /* Pods-Hotpot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hotpot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hotpot/Pods-Hotpot.debug.xcconfig"; sourceTree = "<group>"; };
+		5223C1D6209109D700ACF1CC /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		5226DD4B2076EC0600F4BEFD /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		5226DD4C2076EC0700F4BEFD /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		526BF24B20449FBD0052BC19 /* Hotpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hotpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +118,7 @@
 			children = (
 				526BF24E20449FBD0052BC19 /* AppDelegate.swift */,
 				526BF25220449FBD0052BC19 /* Main.storyboard */,
+				5223C1D6209109D700ACF1CC /* BudgetViewController.swift */,
 				79295319208D1940003A8CED /* PieViewController.swift */,
 				5226DD4B2076EC0600F4BEFD /* SWRevealViewController.h */,
 				5226DD4C2076EC0700F4BEFD /* SWRevealViewController.m */,
@@ -322,6 +325,7 @@
 				79734A332075B13C003A5C5E /* CoreDataHandler.swift in Sources */,
 				79734A2B2072BE91003A5C5E /* Model.xcdatamodeld in Sources */,
 				526BF24F20449FBD0052BC19 /* AppDelegate.swift in Sources */,
+				5223C1D7209109D700ACF1CC /* BudgetViewController.swift in Sources */,
 				796A62D3205F47930003B5E9 /* PopOverViewController.swift in Sources */,
 				79734A302075A189003A5C5E /* ViewController.swift in Sources */,
 				79DED98A20795C8500E94512 /* SearchTableViewController.swift in Sources */,
