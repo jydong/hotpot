@@ -114,15 +114,12 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         let now = NSDate()
         let dateFormatter = DateFormatter()
-        
-//        dateFormatter.dateFormat = "MMM dd, yyyy"
-//        let current_date = dateFormatter.string(from:now as Date)
+
         entry.date = now as Date
         
         dateFormatter.dateFormat = "M"
         let current_month = Int(dateFormatter.string(from:now as Date))
         
-
         dateFormatter.dateFormat = "y"
         let current_year = Int(dateFormatter.string(from:now as Date))
             

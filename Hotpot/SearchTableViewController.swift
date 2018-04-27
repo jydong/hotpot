@@ -150,6 +150,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 else if entry.category == "investments" {
                     emoji = "💰"
                 }
+                else if entry.category == "income" {
+                    emoji = "💸"
+                }
                 displayedString = "\(displayedString)\n\(emoji)\(" ")\(cat)"
             }
             if let n = entry.note {
@@ -197,6 +200,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 }
                 else if entry.category == "investments" {
                     emoji = "💰"
+                }
+                else if entry.category == "income" {
+                    emoji = "💸"
                 }
                 displayedString = "\(displayedString)\n\(emoji)\(" ")\(cat)"
             }
