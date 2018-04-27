@@ -30,7 +30,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     let currency = ["USD", "CAD", "CNY", "EUR", "GBP", "JPY"]
-    let category = ["Food", "Housing", "Transport", "Shopping", "Health", "Travel", "Bills", "Investments"]
+    let category = ["Food", "Housing", "Transport", "Shopping", "Health", "Travel", "Bills", "Investments", "Income"]
     
     var selectedCur = "USD"
     var selectedCat = "Food"
@@ -100,7 +100,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let entry = Entry(context: context) // Link Entry & Context
         
-        if let amount = Double(numberField.text!){
+        if Double(numberField.text!) != nil{
             entry.amount = numberField.text!
         }
         else{
@@ -141,7 +141,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     
                     var num = Double(a)!
                     
-                    b.budget = 2000
+                    //b.income = 0.0
                     
 //                    b.sum = 0.0
 //                    b.food = 0.0
@@ -164,13 +164,18 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                         num = 1.4 * num
                     }
                     else {}
-                
-                    
-                    // update sum
-                    b.sum += num
+            
+    
                     
                     // update category sum
                     let category = entry.category!
+                    
+                    // update sum
+                    if category != "income" {
+                        b.sum += num
+                    }
+                    
+                    
                     switch category {
                         case "food":
                             b.food += num
@@ -188,6 +193,8 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                             b.shopping += num
                         case "health":
                             b.health += num
+                        case "income":
+                            b.income += num
                         default:
                             print("invalid category")
                     }
@@ -216,6 +223,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             b.investments = 0.0
             b.shopping = 0.0
             b.health = 0.0
+            b.income = 0.0
             
             // convert amount to USD
             if let a = entry.amount {
@@ -237,11 +245,15 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     num = 1.4 * num
                 }
                 else {}
-                
-                // update sum
-                b.sum += num
+
                 
                 let category = entry.category!
+                
+                // update sum
+                if category != "income" {
+                    b.sum += num
+                }
+                
                 switch category {
                     case "food":
                         b.food += num
@@ -259,6 +271,8 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                         b.shopping += num
                     case "health":
                         b.health += num
+                    case "income":
+                        b.income += num
                     default:
                         print("invalid category")
                 }

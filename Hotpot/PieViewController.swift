@@ -64,19 +64,23 @@ class PieViewController: UIViewController {
         
         // Access chart description
         if selected_year != nil {
-            pieChart.chartDescription?.text = "Report for \(selected_month) \(selected_year!)"
+            pieChart.chartDescription?.text = ""
             chartTitle.font = UIFont.boldSystemFont(ofSize:23.0)
             chartTitle.text = "Report for \(selected_month) \(selected_year!)\nMonthly budget: \(selected_budget[0])"
-            currentBudget.text = "Budget: \(String(format: "%.2f",selected_budget[0].budget)) USD"
-            currentSum.text = "Total spending: \(String(format: "%.2f",selected_budget[0].sum)) USD"
+//            currentBudget.text = "Budget: \(String(format: "%.2f",selected_budget[0].budget)) USD"
+//            currentSum.text = "Total spending: \(String(format: "%.2f",selected_budget[0].sum)) USD"
         }
         else{
-            pieChart.chartDescription?.text = "Report for \(selected_month) 2018"
+            pieChart.chartDescription?.text = ""
             chartTitle.font = UIFont.boldSystemFont(ofSize:23.0)
             chartTitle.text = "Report for \(selected_month) 2018 \nMonthly budget: \(selected_budget[0])"
-            currentBudget.text = "Budget: \(String(format: "%.2f",selected_budget[0].budget)) USD"
-            currentSum.text = "Total spending: \(String(format: "%.2f",selected_budget[0].sum)) USD"
+//            currentBudget.text = "Budget: \(String(format: "%.2f",selected_budget[0].budget)) USD"
+//            currentSum.text = "Total spending: \(String(format: "%.2f",selected_budget[0].sum)) USD"
         }
+        
+        // center the legend
+        pieChart.legend.xOffset += 20
+        pieChart.centerText = "Total: \(String(format: "%.2f",selected_budget[0].sum)) USD \n Budget: \(String(format: "%.2f",selected_budget[0].budget)) USD"
         
         //set the pie chart data entry values and labels
         foodDataEntry.value = selected_budget[0].food

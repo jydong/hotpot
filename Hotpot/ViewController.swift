@@ -124,6 +124,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             else if entry.category == "investments" {
                 emoji = "💰"
             }
+            else if entry.category == "income" {
+                emoji = "💸"
+            }
             displayedString = "\(displayedString)\n\(emoji)\(" ")\(cat)"
         }
         if let n = entry.note {
@@ -197,10 +200,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         }
                         else {}
                         
-                        // update sum
-                        b.sum -= num
-                        
                         let category = entry.category!
+                        
+                        if category != "income" {
+                            // update sum
+                            b.sum -= num
+                        }
 
                         switch category {
                             case "food":
@@ -219,6 +224,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                 b.shopping -= num
                             case "health":
                                 b.health -= num
+                            case "income":
+                                b.income -= num
                             default:
                                 print("invalid category")
                         }
