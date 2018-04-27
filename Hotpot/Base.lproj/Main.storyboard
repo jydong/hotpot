@@ -20,13 +20,13 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kfa-oR-lh6">
                                 <rect key="frame" x="0.0" y="259" width="375" height="357"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="homeEntry" id="2vx-uq-QGx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="homeEntry" id="9PE-V5-dwu">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2vx-uq-QGx" id="uqG-w9-cP6">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9PE-V5-dwu" id="Tpg-jr-jo1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -67,7 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Hotpot" id="dvm-9v-Pnl">
                         <barButtonItem key="leftBarButtonItem" image="Menu Filled-50" id="JuR-H6-z4R"/>
-                        <barButtonItem key="rightBarButtonItem" id="IDq-aI-HJJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IDq-aI-HJJ">
                             <connections>
                                 <action selector="addEntry:" destination="Ox1-c2-6vY" id="ltR-lN-gar"/>
                                 <segue destination="vpi-QF-Do4" kind="popoverPresentation" popoverAnchorBarButtonItem="IDq-aI-HJJ" id="N0g-Vg-gP0">
@@ -113,6 +113,11 @@
                                 <color key="textColor" red="0.089494474232196808" green="0.42140465974807739" blue="0.44417423009872437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FdT-eN-ycQ" userLabel="Bar Chart" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="518" width="375" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="SbF-EC-MsP"/>
@@ -125,6 +130,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="barChart" destination="FdT-eN-ycQ" id="bDE-n4-cdj"/>
                         <outlet property="chartTitle" destination="65i-2f-kTH" id="xtg-2J-ENh"/>
                         <outlet property="currentBudget" destination="luG-Jd-LPS" id="DHU-63-5h1"/>
                         <outlet property="pieChart" destination="prf-Ry-FLI" id="Dfl-hd-q3Y"/>
