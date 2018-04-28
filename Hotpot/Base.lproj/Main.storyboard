@@ -114,7 +114,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FdT-eN-ycQ" userLabel="Bar Chart" customClass="HorizontalBarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="454" width="375" height="213"/>
+                                <rect key="frame" x="0.0" y="490" width="375" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -222,6 +222,14 @@
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-mi-GKr">
+                                        <rect key="frame" x="96" y="501" width="43" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="report"/>
+                                        <connections>
+                                            <segue destination="3Mj-fq-CM7" kind="show" id="bvl-vH-FA5"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -418,5 +426,8 @@
         <image name="Menu Filled-50" width="24" height="24"/>
         <image name="rawpixel-com-570908-unsplash.jpg" width="5000" height="3017"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bvl-vH-FA5"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.1280724926548944" blue="0.058129116358554667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

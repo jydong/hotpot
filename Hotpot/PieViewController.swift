@@ -35,8 +35,8 @@ class PieViewController: UIViewController {
     
     
     //init the bar char data entries
-    var budgetDataEntry = BarChartDataEntry (x: 1.0, y: 0.0)
-    var sumDataEntry = BarChartDataEntry (x: 2.0, y: 0.0)
+    var sumDataEntry = BarChartDataEntry (x: 1.0, y: 0.0)
+    var budgetDataEntry = BarChartDataEntry (x: 2.0, y: 0.0)
     var incomeDataEntry = BarChartDataEntry (x: 3.0, y: 0.0)
     
     var pieEntries = [PieChartDataEntry]()
@@ -79,7 +79,7 @@ class PieViewController: UIViewController {
         // center the legend
         pieChart.legend.xOffset += 20
         pieChart.legend.yOffset += 15
-        pieChart.centerText = "Total: \(String(format: "%.2f",selected_budget[0].sum)) USD \n Budget: \(String(format: "%.2f",selected_budget[0].budget)) USD"
+        pieChart.centerText = "Spending: \(String(format: "%.2f",selected_budget[0].sum)) USD \n Budget: \(String(format: "%.2f",selected_budget[0].budget)) USD"
         
         //set the pie chart data entry values and labels
         foodDataEntry.value = selected_budget[0].food
@@ -129,7 +129,10 @@ class PieViewController: UIViewController {
         barChart.rightAxis.drawLabelsEnabled = true
         barChart.rightAxis.drawGridLinesEnabled = false
         barChart.leftAxis.drawGridLinesEnabled = false
-        barChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .easeInOutQuad)
+//        barChart.drawBordersEnabled = false
+//        barChart.minOffset = 0
+        //barChart.leftAxis.spaceTop = 0.0
+        //barChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .easeInOutQuad)
         
         barEntries = [sumDataEntry, budgetDataEntry, incomeDataEntry]
         
