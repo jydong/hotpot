@@ -113,8 +113,8 @@
                                 <color key="textColor" red="0.089494474232196808" green="0.42140465974807739" blue="0.44417423009872437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FdT-eN-ycQ" userLabel="Bar Chart" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="518" width="375" height="128"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FdT-eN-ycQ" userLabel="Bar Chart" customClass="HorizontalBarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="454" width="375" height="213"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>

@@ -18,7 +18,7 @@ class PieViewController: UIViewController {
     var selected_budget:[Budget] = []
 
     @IBOutlet weak var pieChart: PieChartView!
-    @IBOutlet weak var barChart: BarChartView!
+    @IBOutlet weak var barChart: HorizontalBarChartView!
     
     @IBOutlet weak var chartTitle: UILabel!
     @IBOutlet weak var currentBudget: UILabel!
@@ -118,7 +118,7 @@ class PieViewController: UIViewController {
         
         let labels = ["", "Spending", "Budget","Income"]
         
-        // format the bar chart
+        // format bar chart
         barChart.chartDescription?.text = ""
         barChart.legend.enabled = false
         barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: labels)
@@ -129,6 +129,8 @@ class PieViewController: UIViewController {
         barChart.rightAxis.drawLabelsEnabled = true
         barChart.rightAxis.drawGridLinesEnabled = false
         barChart.leftAxis.drawGridLinesEnabled = false
+        barChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .easeInOutQuad)
+        
         barEntries = [sumDataEntry, budgetDataEntry, incomeDataEntry]
         
         
@@ -144,6 +146,7 @@ class PieViewController: UIViewController {
         
         let barDataSet = BarChartDataSet(values: barEntries, label: "Types")
         let barData = BarChartData(dataSet: barDataSet)
+        barData.barWidth = barData.barWidth * 0.4 // make the bar width smaller
         
         var colors: [UIColor] = []
         colors.append(UIColor(red: 1, green: 165/255, blue: 0, alpha: 1))
@@ -159,6 +162,7 @@ class PieViewController: UIViewController {
         pieChart.data = chartData
         
         barDataSet.colors = ChartColorTemplates.joyful()
+        barDataSet.drawValuesEnabled = true
         barChart.data = barData
         barChart.notifyDataSetChanged()
     }
