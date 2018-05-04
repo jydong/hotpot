@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var testImage: UIImageView!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -76,6 +77,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //                (UIApplication.shared.delegate as! AppDelegate).saveContext()
 //            }
             print("hi")
+            
+        }
+        
+        if(entries.last!.date != nil){
+            let name = entries.last!.date!
+            getImage(String(describing:(name)))
+        }
+        
+        
+    }
+    
+    func getDirectoryPath()-> String{
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let doc = path[0]
+        return doc
+    }
+    
+    func getImage(_ name: String){
+        let fileManager = FileManager.default
+        print(name + ".jpg")
+        let path = (self.getDirectoryPath() as NSString).appendingPathComponent(name + ".jpg")
+        if fileManager.fileExists(atPath: path){
+            testImage.image = UIImage(contentsOfFile: path)
+        }
+        else{
+            print("No Image")
         }
     }
 

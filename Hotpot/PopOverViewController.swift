@@ -13,6 +13,7 @@ import CoreData
 class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     
+   
     @IBOutlet weak var imagePicked: UIImageView!
     
     @IBOutlet weak var Popupview: UIView!
@@ -88,6 +89,9 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
     }
     
     // touch on the screen will hide the keyboard
@@ -115,8 +119,9 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
 
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        print("image picker controller")
         imagePicked.contentMode = .scaleAspectFit
         imagePicked.image = image
 //        if let imgUrl = info[UIImagePickerControllerImageURL] as? URL{
@@ -133,24 +138,35 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 //            print(photoURL)
 //        }
         
-        if let imageURL = info[UIImagePickerControllerImageURL] as? URL {
-            print(imageURL)
-        }
+//        if let imageURL = info[UIImagePickerControllerImageURL] as? URL {
+//            print(imageURL)
+//        }
         
         
-        print("failed if let")
+        
         dismiss(animated:true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
     }
 
     
     func SaveImageInDD(_ name: String){
-        let fileManager = FileManager.default
-        let n = name+".jpg"
-        let pathName = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) [0] as NSString).appendingPathComponent(n)
-        let image = imagePicked.image
-        let imagedata = UIImageJPEGRepresentation(image!, 0.5)
-        fileManager.createFile(atPath: pathName, contents: imagedata, attributes: nil)
+        if let image = imagePicked.image {
+            let fileManager = FileManager.default
+            let n = name+".jpg"
+            let pathName = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) [0] as NSString).appendingPathComponent(n)
+            //let image = imagePicked.image
+            let imagedata = UIImageJPEGRepresentation(image, 0.5)
+            fileManager.createFile(atPath: pathName, contents: imagedata, attributes: nil)
+            print(pathName)
+        }
+        else{
+            print("image is nil")
+        }
     }
+    
     func getDirectoryPath()-> String{
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let doc = path[0]
@@ -349,6 +365,13 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             }
         }
         
+        if(entry.date != nil){
+            let name = entry.date!
+            SaveImageInDD(String(describing: name))
+        }
+        
+        
+
         
         // save data to coredata
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
