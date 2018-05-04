@@ -12,6 +12,7 @@ import CoreData
 class BudgetViewController: UIViewController {
 
     @IBOutlet weak var budgetTextField: UITextField!
+    var budgets:[Budget] = []
     
    
    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -28,19 +29,34 @@ class BudgetViewController: UIViewController {
    //save to database
     @IBAction func setBudget(_ sender: Any) {
        
-        
-        let b = Budget(context: context) //Link Budget & Context
-        
-        if (budgetTextField.text != nil){
-            if Double(budgetTextField.text!) != nil{
-                b.budget = Double(budgetTextField.text!)!
-                print(b.budget)
-            }
-            else{
-                print("cannot convert textfield input to type double")
+        getBudgetData()
+
+        for b in budgets{
+            let m: Int = Int(b.month)
+            let y: Int = Int(b.year)
+            if (m == 5) && (y == 2018){
+                if (budgetTextField.text != nil){
+                    if Double(budgetTextField.text!) != nil{
+                        b.budget = Double(budgetTextField.text!)!
+                        print(b.budget)
+                    }
+                    else{
+                        print("cannot convert textfield input to type double")
+                    }
+                }
+            
             }
         }
-
+    }
+    
+    // fetch budget data
+    func getBudgetData() {
+        do {
+            budgets = try context.fetch(Budget.fetchRequest())
+        }
+        catch {
+            print("Fetching Failed")
+        }
     }
     
     override func didReceiveMemoryWarning() {
