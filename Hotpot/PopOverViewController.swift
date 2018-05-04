@@ -37,7 +37,6 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     var selectedCur = "USD"
     var selectedCat = "Food"
     var imageFilePath = ""
-    
     var budgets:[Budget] = []
     
     
@@ -114,6 +113,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
+
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
@@ -143,8 +143,30 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
 
     
-    
-    
+    func SaveImageInDD(_ name: String){
+        let fileManager = FileManager.default
+        let n = name+".jpg"
+        let pathName = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) [0] as NSString).appendingPathComponent(n)
+        let image = imagePicked.image
+        let imagedata = UIImageJPEGRepresentation(image!, 0.5)
+        fileManager.createFile(atPath: pathName, contents: imagedata, attributes: nil)
+    }
+    func getDirectoryPath()-> String{
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let doc = path[0]
+        return doc
+    }
+//    
+//    func GetImage(_ name: String){
+//        let fileManager = FileManager.default
+//        let path = (self.getDirectoryPath() as NSString).appendingPathComponent(name+".jpg")
+//        if fileManager.fileExists(atPath: path){
+//            imageView = UIImage(contentsOfFile: path)
+//        }
+//        else{
+//            print("No Image")
+//        }
+//    }
     
     // save popup
     @IBAction func savePopup(_ sender: Any) {
