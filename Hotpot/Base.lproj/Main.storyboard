@@ -69,7 +69,6 @@
                         <barButtonItem key="leftBarButtonItem" image="Menu Filled-50" id="JuR-H6-z4R"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IDq-aI-HJJ">
                             <connections>
-                                <action selector="addEntry:" destination="Ox1-c2-6vY" id="ltR-lN-gar"/>
                                 <segue destination="vpi-QF-Do4" kind="popoverPresentation" popoverAnchorBarButtonItem="IDq-aI-HJJ" id="daJ-mp-5BH">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
