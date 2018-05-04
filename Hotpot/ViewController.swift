@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var testImage: UIImageView!
+    @IBOutlet var testImage: UIImageView!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -40,6 +40,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // display slider menu page
         sideMenus()
+        
+
 
     }
     
@@ -82,7 +84,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if(entries.last!.date != nil){
             let name = entries.last!.date!
+            //testImage.image = UIImage(named: "background.jpg")
             getImage(String(describing:(name)))
+        }
+        else{
+            testImage.image = UIImage(named: "background.jpg")
         }
         
         
@@ -99,6 +105,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print(name + ".jpg")
         let path = (self.getDirectoryPath() as NSString).appendingPathComponent(name + ".jpg")
         if fileManager.fileExists(atPath: path){
+            if(testImage == nil){
+                print("test image is nil")
+            }
             testImage.image = UIImage(contentsOfFile: path)
         }
         else{

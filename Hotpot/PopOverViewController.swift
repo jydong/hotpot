@@ -366,8 +366,10 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
         
         if(entry.date != nil){
-            let name = entry.date!
-            SaveImageInDD(String(describing: name))
+            if(imagePicked != nil){
+                let name = entry.date!
+                SaveImageInDD(String(describing: name))
+            }
         }
         
         
