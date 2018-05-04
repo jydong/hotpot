@@ -10,8 +10,10 @@
 
 import UIKit
 import CoreData
-class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    
+    @IBOutlet weak var imagePicked: UIImageView!
     
     @IBOutlet weak var Popupview: UIView!
     
@@ -30,10 +32,11 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     let currency = ["USD", "CAD", "CNY", "EUR", "GBP", "JPY"]
-    let category = ["Food", "Housing", "Transport", "Shopping", "Health", "Travel", "Bills", "Investments"]
+    let category = ["Food", "Housing", "Transport", "Shopping", "Health", "Travel", "Bills", "Investments", "Income"]
     
     var selectedCur = "USD"
     var selectedCat = "Food"
+    var imageFilePath = ""
     
     var budgets:[Budget] = []
     
@@ -94,13 +97,61 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
          noteField.resignFirstResponder()
     }
 
+
+    @IBAction func openCameraButton(_ sender: Any) {
+//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//            var imagePicker = UIImagePickerController()
+//            imagePicker.delegate = self
+//            imagePicker.sourceType = .camera;
+//            imagePicker.allowsEditing = false
+//            self.present(imagePicker, animated: true, completion: nil)
+//        }
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            var imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imagePicked.contentMode = .scaleAspectFit
+        imagePicked.image = image
+//        if let imgUrl = info[UIImagePickerControllerImageURL] as? URL{
+//            print("if let")
+//            let imgName = imgUrl.lastPathComponent
+//            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+//            let localPath = documentDirectory?.appending(imgName)
+//
+//            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+//            let data = UIImagePNGRepresentation(image)! as NSData
+//            data.write(toFile: localPath!, atomically: true)
+//            //let imageData = NSData(contentsOfFile: localPath!)!
+//            let photoURL = URL.init(fileURLWithPath: localPath!)//NSURL(fileURLWithPath: localPath!)
+//            print(photoURL)
+//        }
+        
+        if let imageURL = info[UIImagePickerControllerImageURL] as? URL {
+            print(imageURL)
+        }
+        
+        
+        print("failed if let")
+        dismiss(animated:true, completion: nil)
+    }
+
+    
+    
+    
     
     // save popup
     @IBAction func savePopup(_ sender: Any) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let entry = Entry(context: context) // Link Entry & Context
         
-        if let amount = Double(numberField.text!){
+        if Double(numberField.text!) != nil{
             entry.amount = numberField.text!
         }
         else{
@@ -114,15 +165,12 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         let now = NSDate()
         let dateFormatter = DateFormatter()
-        
-//        dateFormatter.dateFormat = "MMM dd, yyyy"
-//        let current_date = dateFormatter.string(from:now as Date)
+
         entry.date = now as Date
         
         dateFormatter.dateFormat = "M"
         let current_month = Int(dateFormatter.string(from:now as Date))
         
-
         dateFormatter.dateFormat = "y"
         let current_year = Int(dateFormatter.string(from:now as Date))
             
@@ -164,13 +212,18 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                         num = 1.4 * num
                     }
                     else {}
-                
-                    
-                    // update sum
-                    b.sum += num
+            
+    
                     
                     // update category sum
                     let category = entry.category!
+                    
+                    // update sum
+                    if category != "income" {
+                        b.sum += num
+                    }
+                    
+                    
                     switch category {
                         case "food":
                             b.food += num
@@ -188,6 +241,8 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                             b.shopping += num
                         case "health":
                             b.health += num
+                        case "income":
+                            b.income += num
                         default:
                             print("invalid category")
                     }
@@ -216,6 +271,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             b.investments = 0.0
             b.shopping = 0.0
             b.health = 0.0
+            b.income = 0.0
             
             // convert amount to USD
             if let a = entry.amount {
@@ -237,11 +293,15 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     num = 1.4 * num
                 }
                 else {}
-                
-                // update sum
-                b.sum += num
+
                 
                 let category = entry.category!
+                
+                // update sum
+                if category != "income" {
+                    b.sum += num
+                }
+                
                 switch category {
                     case "food":
                         b.food += num
@@ -259,6 +319,8 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                         b.shopping += num
                     case "health":
                         b.health += num
+                    case "income":
+                        b.income += num
                     default:
                         print("invalid category")
                 }

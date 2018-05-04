@@ -40,6 +40,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier:"cell")
     }
     
+    // shift down the scope buttons when the search bar is clicked so they don't overlap each other
+    override func viewDidLayoutSubviews() {
+        self.searchController.searchBar.sizeToFit()
+    }
+    
     // filter entries by search input and scope
     func applySearch(searchText:String, scope:String = "All") {
         // filter by scope
@@ -93,6 +98,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         getData()
         tableView.reloadData()
     }
+    
     
     // display tableView based on cell count
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -150,6 +156,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 else if entry.category == "investments" {
                     emoji = "💰"
                 }
+                else if entry.category == "income" {
+                    emoji = "💸"
+                }
                 displayedString = "\(displayedString)\n\(emoji)\(" ")\(cat)"
             }
             if let n = entry.note {
@@ -197,6 +206,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 }
                 else if entry.category == "investments" {
                     emoji = "💰"
+                }
+                else if entry.category == "income" {
+                    emoji = "💸"
                 }
                 displayedString = "\(displayedString)\n\(emoji)\(" ")\(cat)"
             }
