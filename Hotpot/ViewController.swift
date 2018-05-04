@@ -68,7 +68,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         for b in budgets {
             print(b)
-            //context.delete(b)
             print("hi")
         }
     }

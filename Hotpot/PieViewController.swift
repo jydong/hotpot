@@ -87,7 +87,7 @@ class PieViewController: UIViewController {
         
         transportDataEntry.value = selected_budget[0].transport
         transportDataEntry.label = "Transport"
-    
+    
         housingDataEntry.value = selected_budget[0].housing
         housingDataEntry.label = "Housing"
         

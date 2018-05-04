@@ -230,6 +230,14 @@
                                             <segue destination="3Mj-fq-CM7" kind="show" id="bvl-vH-FA5"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWh-VA-DwN">
+                                        <rect key="frame" x="79" y="179" width="80" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Add Picture"/>
+                                        <connections>
+                                            <action selector="openCameraButton:" destination="vpi-QF-Do4" eventType="touchUpInside" id="7lj-Ph-onu"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>

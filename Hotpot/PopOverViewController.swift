@@ -10,8 +10,10 @@
 
 import UIKit
 import CoreData
-class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    
+    @IBOutlet weak var imagePicked: UIImageView!
     
     @IBOutlet weak var Popupview: UIView!
     
@@ -34,6 +36,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     var selectedCur = "USD"
     var selectedCat = "Food"
+    var imageFilePath = ""
     
     var budgets:[Budget] = []
     
@@ -94,6 +97,54 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
          noteField.resignFirstResponder()
     }
 
+
+    @IBAction func openCameraButton(_ sender: Any) {
+//        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//            var imagePicker = UIImagePickerController()
+//            imagePicker.delegate = self
+//            imagePicker.sourceType = .camera;
+//            imagePicker.allowsEditing = false
+//            self.present(imagePicker, animated: true, completion: nil)
+//        }
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            var imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imagePicked.contentMode = .scaleAspectFit
+        imagePicked.image = image
+//        if let imgUrl = info[UIImagePickerControllerImageURL] as? URL{
+//            print("if let")
+//            let imgName = imgUrl.lastPathComponent
+//            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+//            let localPath = documentDirectory?.appending(imgName)
+//
+//            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+//            let data = UIImagePNGRepresentation(image)! as NSData
+//            data.write(toFile: localPath!, atomically: true)
+//            //let imageData = NSData(contentsOfFile: localPath!)!
+//            let photoURL = URL.init(fileURLWithPath: localPath!)//NSURL(fileURLWithPath: localPath!)
+//            print(photoURL)
+//        }
+        
+        if let imageURL = info[UIImagePickerControllerImageURL] as? URL {
+            print(imageURL)
+        }
+        
+        
+        print("failed if let")
+        dismiss(animated:true, completion: nil)
+    }
+
+    
+    
+    
     
     // save popup
     @IBAction func savePopup(_ sender: Any) {
