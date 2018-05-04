@@ -189,11 +189,6 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     
                     var num = Double(a)!
                     
-
-                    
-//                    b.sum = 0.0
-//                    b.food = 0.0
-//                    b.housing = 0.0
                     
                     // convert amount to USD 
                     if entry.currency == "CAD" {
