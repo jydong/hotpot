@@ -10,7 +10,6 @@
 
 import UIKit
 import CoreData
-import Charts
 
 
 
@@ -34,6 +33,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                            forCellReuseIdentifier: "Cell")
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+        
         
         // display slider menu page
         sideMenus()
@@ -68,6 +70,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         for b in budgets {
             print(b)
+            
+            if(b.month != 4){
+                context.delete(b)
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            }
             print("hi")
         }
     }
