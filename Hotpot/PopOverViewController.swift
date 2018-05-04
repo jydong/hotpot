@@ -141,7 +141,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     
                     var num = Double(a)!
                     
-                    b.budget = 2000
+
                     
 //                    b.sum = 0.0
 //                    b.food = 0.0
@@ -303,11 +303,21 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func createAlert (title:String, message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
+        
+        
+        
         //CREATING ON BUTTON
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
-            print ("YES: update budget")
+
+            //go to BudgetViewController through ccurrent visible controller
+            let newViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BudgetViewController")
+            UIApplication.topViewController()?.present(newViewController, animated: true, completion: nil)
+            
+            
         }))
+        
+        
         
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
@@ -325,6 +335,24 @@ extension ViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// find the topViewController on your UIApplication Stack, and from there present your controller
+extension UIApplication {
+    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return topViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+        return base
     }
 }
 
