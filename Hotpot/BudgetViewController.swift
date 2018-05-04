@@ -7,15 +7,42 @@
 //
 
 import UIKit
+import CoreData
 
 class BudgetViewController: UIViewController {
 
+    @IBOutlet weak var budgetTextField: UITextField!
+    
+   
+   let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
+    
+    
+   //save to database
+    @IBAction func setBudget(_ sender: Any) {
+       
+        
+        let b = Budget(context: context) //Link Budget & Context
+        
+        if (budgetTextField.text != nil){
+            if Double(budgetTextField.text!) != nil{
+                b.budget = Double(budgetTextField.text!)!
+                print(b.budget)
+            }
+            else{
+                print("cannot convert textfield input to type double")
+            }
+        }
 
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -23,7 +50,6 @@ class BudgetViewController: UIViewController {
     
     // Go back to the previous page
     @IBAction func goBack(_ sender: Any) {
-        
         dismiss(animated: true, completion: nil)
     }
     
