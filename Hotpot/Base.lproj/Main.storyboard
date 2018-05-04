@@ -34,7 +34,7 @@
                                 </prototypes>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rawpixel-com-570908-unsplash.jpg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xrl-Ip-nSY">
-                                <rect key="frame" x="0.0" y="65" width="375" height="194"/>
+                                <rect key="frame" x="0.0" y="65" width="162" height="194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MyY-te-dI8">
@@ -61,6 +61,10 @@
                                     <segue destination="3Mj-fq-CM7" kind="show" id="FwI-to-YNB"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuO-xB-rEh">
+                                <rect key="frame" x="226" y="98" width="149" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.83897578719999999" green="0.79171800609999998" blue="0.81571382280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="IxY-Lq-d52"/>
@@ -78,6 +82,7 @@
                     <connections>
                         <outlet property="menuButton" destination="JuR-H6-z4R" id="2v0-vU-2nX"/>
                         <outlet property="tableView" destination="Kfa-oR-lh6" id="xlc-tK-vBw"/>
+                        <outlet property="testImage" destination="cuO-xB-rEh" id="NLM-MK-mWa"/>
                         <outlet property="view" destination="Kfa-oR-lh6" id="jeb-E0-yZp"/>
                     </connections>
                 </viewController>
@@ -237,6 +242,10 @@
                                             <action selector="openCameraButton:" destination="vpi-QF-Do4" eventType="touchUpInside" id="7lj-Ph-onu"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DXg-Mo-vkW">
+                                        <rect key="frame" x="192" y="169" width="82" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -253,6 +262,7 @@
                     <navigationItem key="navigationItem" id="bF6-kF-DOb"/>
                     <connections>
                         <outlet property="Popupview" destination="XrO-EQ-sS3" id="xAa-1O-v6x"/>
+                        <outlet property="imagePicked" destination="DXg-Mo-vkW" id="NkT-fr-IAn"/>
                         <outlet property="label" destination="3qQ-91-f6I" id="7Ex-YE-2GR"/>
                         <outlet property="label2" destination="mu3-SN-fGc" id="CzE-mK-s3w"/>
                         <outlet property="noteField" destination="cR9-YO-Rnd" id="AGH-Ud-gN5"/>
@@ -263,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pvv-k3-ngA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2319" y="36"/>
+            <point key="canvasLocation" x="2317.5999999999999" y="35.532233883058474"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="oAv-j0-qNd">
