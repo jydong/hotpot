@@ -74,6 +74,7 @@ class BudgetViewController: UIViewController {
         }
     }
     
+    //make sure the controller receives memory warning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

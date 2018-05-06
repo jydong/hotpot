@@ -98,7 +98,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         for b in budgets {
             print(b)
             
-// delete the entries
+//      delete the entries
 //            if(b.month != 4){
 //                context.delete(b)
 //                (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -112,6 +112,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    // get current directory path
     func getDirectoryPath()-> String{
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let doc = path[0]
