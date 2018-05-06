@@ -302,6 +302,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             getImage(String(describing:(name)))
         }
     }
+    
+    // change the image displayed when a cell is clicked or touched
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected cell: \(indexPath.row)")
+        if(entries != []){
+            let entryIndex = entries.count - 1 - indexPath.row
+            print("entry index: \(entryIndex)")
+            if(entries[entryIndex].date != nil){
+                let name = entries[entryIndex].date!
+                getImage(String(describing:(name)))
+            }
+            else{
+                testImage.image = UIImage(named: "background.jpg")
+            }
+        }
+        else{
+            testImage.image = UIImage(named: "background.jpg")
+        }
+        
+
+    }
 
 
 }
