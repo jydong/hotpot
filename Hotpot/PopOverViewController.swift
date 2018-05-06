@@ -12,8 +12,6 @@ import UIKit
 import CoreData
 class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    
-   
     @IBOutlet weak var imagePicked: UIImageView!
     
     @IBOutlet weak var Popupview: UIView!
@@ -116,32 +114,12 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
 
-    // 
+    // set image view controller
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         print("image picker controller")
         imagePicked.contentMode = .scaleAspectFit
         imagePicked.image = image
-//        if let imgUrl = info[UIImagePickerControllerImageURL] as? URL{
-//            print("if let")
-//            let imgName = imgUrl.lastPathComponent
-//            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
-//            let localPath = documentDirectory?.appending(imgName)
-//
-//            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//            let data = UIImagePNGRepresentation(image)! as NSData
-//            data.write(toFile: localPath!, atomically: true)
-//            //let imageData = NSData(contentsOfFile: localPath!)!
-//            let photoURL = URL.init(fileURLWithPath: localPath!)//NSURL(fileURLWithPath: localPath!)
-//            print(photoURL)
-//        }
-        
-//        if let imageURL = info[UIImagePickerControllerImageURL] as? URL {
-//            print(imageURL)
-//        }
-        
-        
-        
         dismiss(animated:true, completion: nil)
     }
     
@@ -172,7 +150,6 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let doc = path[0]
         return doc
     }
-
     
     // save popup
     @IBAction func savePopup(_ sender: Any) {
@@ -214,10 +191,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             if (m == current_month!) && (y == current_year!){
                 new_month = false
                 if let a = entry.amount {
-                    
                     var num = Double(a)!
-                    
-                    
                     // convert amount to USD 
                     if entry.currency == "CAD" {
                         num = 0.78 * num
@@ -236,8 +210,6 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     }
                     else {}
             
-    
-                    
                     // update category sum
                     let category = entry.category!
                     
@@ -245,7 +217,6 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     if category != "income" {
                         b.sum += num
                     }
-                    
                     
                     switch category {
                         case "food":
@@ -279,7 +250,6 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                 }
             }
         }
-        
         if new_month {
             let b = Budget(context: context) // Link Budget & Context
             b.budget = 1000.0
