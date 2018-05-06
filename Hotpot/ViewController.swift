@@ -118,6 +118,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         else{
             print("No Image")
+            testImage.image = UIImage(named: "background.jpg")
         }
     }
 
@@ -294,6 +295,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
         tableView.reloadData()
+        
+        if(entries.last!.date != nil){
+            let name = entries.last!.date!
+            
+            getImage(String(describing:(name)))
+        }
     }
 
 

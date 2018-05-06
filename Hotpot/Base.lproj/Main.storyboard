@@ -468,7 +468,7 @@
         <image name="Menu Filled-50" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bvl-vH-FA5"/>
+        <segue reference="FwI-to-YNB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.1280724926548944" blue="0.058129116358554667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
