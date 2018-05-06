@@ -170,7 +170,7 @@ class PieViewController: UIViewController {
         barChart.notifyDataSetChanged()
     }
     
-    //make sure the controller receive memory warning
+    //make sure the controller receives memory warning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
