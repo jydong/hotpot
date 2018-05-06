@@ -68,7 +68,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuO-xB-rEh">
-                                <rect key="frame" x="56" y="88" width="262" height="163"/>
+                                <rect key="frame" x="16" y="76" width="343" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -149,31 +149,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctv-Ij-hyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1816.8" y="828.93553223388312"/>
-        </scene>
-        <!--Image View Controller-->
-        <scene sceneID="b2h-it-MjB">
-            <objects>
-                <viewController id="Yuq-B6-9v5" customClass="ImageViewController" customModule="Hotpot" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LdF-3W-YaC" customClass="Image">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="image??" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcN-qt-d9A">
-                                <rect key="frame" x="65" y="323" width="64" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="IwD-A4-7eu"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="EaP-wL-dZb"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eXY-3b-XnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2175" y="-701"/>
         </scene>
         <!--Pop Over View Controller-->
         <scene sceneID="zAp-GA-PmB">
@@ -507,30 +482,12 @@
             </objects>
             <point key="canvasLocation" x="-879" y="829"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="8ig-x4-pgG">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3no-fB-eMy" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WeO-aF-jlu">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Yuq-B6-9v5" kind="relationship" relationship="rootViewController" id="bsW-dh-9o7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1SJ-p8-Gbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1418" y="-701"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Menu Filled-50" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bvl-vH-FA5"/>
+        <segue reference="FwI-to-YNB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.1280724926548944" blue="0.058129116358554667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Jingyan Dong. All rights reserved.
 //
 
-//This file will display the main page of the application, with a sidebar botton and a add botton on the nevigation bar and a table of history records. New records added will be appended to the end of the botton. A cell can also be deleted from the table.
+//This file will display the main page of the application, with a sidebar botton and a add botton on the nevigation bar and a table of history records. New records added will be appended to top of the table. A cell can also be deleted from the table. When a table cell is cicked, corresponding image note (if any) will display at the place of the background image. When the image is tapped, a full-screen version of the image will be displayed so that the user can check the detail of the image.
 
 import UIKit
 import CoreData
@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet var testImage: UIImageView!
+    
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -37,12 +38,41 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         // display slider menu page
         sideMenus()
+        
+        
+        //trigger imagetapped functions
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        testImage.isUserInteractionEnabled = true
+        testImage.addGestureRecognizer(tapGestureRecognizer)
     }
     
     // this function is sent to the view controller when the app receives a memory warning.
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //display full-screen image when image is clicked
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let imageView = tapGestureRecognizer.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    //dismiss full-screen image when image is clicked again
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
     }
     
     
@@ -68,6 +98,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         for b in budgets {
             print(b)
             
+// delete the entries
 //            if(b.month != 4){
 //                context.delete(b)
 //                (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -87,6 +118,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return doc
     }
     
+    
+    //get the user selected image (corresponding to entry's date)
+    //if not, display the background image
     func getImage(_ name: String){
         let fileManager = FileManager.default
         print(name + ".jpg")
@@ -110,8 +144,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return entries.count
         //return budgets.count
     }
-    
-    
     
     
 
@@ -311,8 +343,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
 
     }
-
-
 }
 
 

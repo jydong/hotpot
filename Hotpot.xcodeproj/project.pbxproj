@@ -21,8 +21,6 @@
 		79734A2B2072BE91003A5C5E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79734A262072B6CE003A5C5E /* Model.xcdatamodeld */; };
 		79734A302075A189003A5C5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A2F2075A189003A5C5E /* ViewController.swift */; };
 		79734A332075B13C003A5C5E /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79734A322075B13C003A5C5E /* CoreDataHandler.swift */; };
-		79D6EE95209BF3CC0088C11A /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6EE94209BF3CC0088C11A /* ImageViewController.swift */; };
-		79D6EE97209BF8E20088C11A /* entryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6EE96209BF8E20088C11A /* entryCell.swift */; };
 		79DED98A20795C8500E94512 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DED98920795C8500E94512 /* SearchTableViewController.swift */; };
 		D1D1BCD8DB1100B83CE516D3 /* Pods_Hotpot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBBEFA463EC4D7A4D9CDD71 /* Pods_Hotpot.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -59,8 +57,6 @@
 		79734A2F2075A189003A5C5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79734A312075A236003A5C5E /* Hotpot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hotpot-Bridging-Header.h"; sourceTree = "<group>"; };
 		79734A322075B13C003A5C5E /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
-		79D6EE94209BF3CC0088C11A /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
-		79D6EE96209BF8E20088C11A /* entryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entryCell.swift; sourceTree = "<group>"; };
 		79DED98920795C8500E94512 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		ACBC994C4E264629DFF5A488 /* Pods-HotpotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotpotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HotpotTests/Pods-HotpotTests.release.xcconfig"; sourceTree = "<group>"; };
 		DBC7921D7DE8FC509538F875 /* Pods_HotpotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HotpotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,8 +118,6 @@
 			children = (
 				526BF24E20449FBD0052BC19 /* AppDelegate.swift */,
 				526BF25220449FBD0052BC19 /* Main.storyboard */,
-				79D6EE96209BF8E20088C11A /* entryCell.swift */,
-				79D6EE94209BF3CC0088C11A /* ImageViewController.swift */,
 				5223C1D6209109D700ACF1CC /* BudgetViewController.swift */,
 				79295319208D1940003A8CED /* PieViewController.swift */,
 				5226DD4B2076EC0600F4BEFD /* SWRevealViewController.h */,
@@ -327,10 +321,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79D6EE97209BF8E20088C11A /* entryCell.swift in Sources */,
 				5226DD4D2076EC0700F4BEFD /* SWRevealViewController.m in Sources */,
 				79734A332075B13C003A5C5E /* CoreDataHandler.swift in Sources */,
-				79D6EE95209BF3CC0088C11A /* ImageViewController.swift in Sources */,
 				79734A2B2072BE91003A5C5E /* Model.xcdatamodeld in Sources */,
 				526BF24F20449FBD0052BC19 /* AppDelegate.swift in Sources */,
 				5223C1D7209109D700ACF1CC /* BudgetViewController.swift in Sources */,
