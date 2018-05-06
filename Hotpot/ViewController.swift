@@ -34,15 +34,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                            forCellReuseIdentifier: "Cell")
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
-        
-        
+
         // display slider menu page
         sideMenus()
-        
-
-
     }
     
     // this function is sent to the view controller when the app receives a memory warning.
@@ -82,20 +76,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
         }
         
-        if(entries != []){
-        
-            if(entries.last!.date != nil){
-                let name = entries.last!.date!
-                //testImage.image = UIImage(named: "background.jpg")
-                getImage(String(describing:(name)))
-            }
-            else{
-                testImage.image = UIImage(named: "background.jpg")
-            }
-        }
-        else{
-            testImage.image = UIImage(named: "background.jpg")
-        }
+        testImage.image = UIImage(named: "background.jpg")
         
         
     }
@@ -114,10 +95,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if(testImage == nil){
                 print("test image is nil")
             }
+            testImage.contentMode = .scaleAspectFit
             testImage.image = UIImage(contentsOfFile: path)
         }
         else{
             print("No Image")
+            testImage.contentMode = .scaleToFill
             testImage.image = UIImage(named: "background.jpg")
         }
     }
@@ -314,6 +297,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 getImage(String(describing:(name)))
             }
             else{
+                
                 testImage.image = UIImage(named: "background.jpg")
             }
         }
