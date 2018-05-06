@@ -132,7 +132,7 @@ class PieViewController: UIViewController {
 //        barChart.drawBordersEnabled = false
 //        barChart.minOffset = 0
         //barChart.leftAxis.spaceTop = 0.0
-        //barChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .easeInOutQuad)
+        barChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .easeInOutQuad)
         
         barEntries = [sumDataEntry, budgetDataEntry, incomeDataEntry]
         

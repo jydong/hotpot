@@ -82,10 +82,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
         }
         
-        if(entries.last!.date != nil){
-            let name = entries.last!.date!
-            //testImage.image = UIImage(named: "background.jpg")
-            getImage(String(describing:(name)))
+        if(entries != []){
+        
+            if(entries.last!.date != nil){
+                let name = entries.last!.date!
+                //testImage.image = UIImage(named: "background.jpg")
+                getImage(String(describing:(name)))
+            }
+            else{
+                testImage.image = UIImage(named: "background.jpg")
+            }
         }
         else{
             testImage.image = UIImage(named: "background.jpg")
