@@ -82,10 +82,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
         }
         
-        if(entries.last!.date != nil){
-            let name = entries.last!.date!
-            //testImage.image = UIImage(named: "background.jpg")
-            getImage(String(describing:(name)))
+        if(entries != []){
+        
+            if(entries.last!.date != nil){
+                let name = entries.last!.date!
+                //testImage.image = UIImage(named: "background.jpg")
+                getImage(String(describing:(name)))
+            }
+            else{
+                testImage.image = UIImage(named: "background.jpg")
+            }
         }
         else{
             testImage.image = UIImage(named: "background.jpg")
@@ -112,6 +118,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         else{
             print("No Image")
+            testImage.image = UIImage(named: "background.jpg")
         }
     }
 
@@ -292,6 +299,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
         tableView.reloadData()
+        
+        if(entries.last!.date != nil){
+            let name = entries.last!.date!
+            
+            getImage(String(describing:(name)))
+        }
+    }
+    
+    // change the image displayed when a cell is clicked or touched
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected cell: \(indexPath.row)")
+        if(entries != []){
+            let entryIndex = entries.count - 1 - indexPath.row
+            print("entry index: \(entryIndex)")
+            if(entries[entryIndex].date != nil){
+                let name = entries[entryIndex].date!
+                getImage(String(describing:(name)))
+            }
+            else{
+                testImage.image = UIImage(named: "background.jpg")
+            }
+        }
+        else{
+            testImage.image = UIImage(named: "background.jpg")
+        }
+        
+
     }
 
 

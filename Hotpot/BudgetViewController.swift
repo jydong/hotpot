@@ -11,7 +11,13 @@ import CoreData
 
 class BudgetViewController: UIViewController {
 
+    
     @IBOutlet weak var budgetTextField: UITextField!
+
+    @IBOutlet weak var currentBudget: UILabel!
+    
+    @IBOutlet weak var currentMonth: UILabel!
+    
     var budgets:[Budget] = []
     
    
@@ -19,10 +25,19 @@ class BudgetViewController: UIViewController {
     
 
     
-    
+    // load the view controller
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getBudgetData()
+        for b in budgets{
+            let m: Int = Int(b.month)
+            let y: Int = Int(b.year)
+            if (m == 5) && (y == 2018){
+                currentBudget.text = "Current Budget: \(String(format: "%.2f", b.budget)) USD"
+            }
+        }
+        
+        currentMonth.text = "May 2018"
     }
     
     
