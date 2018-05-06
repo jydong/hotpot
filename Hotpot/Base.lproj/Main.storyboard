@@ -93,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="743.20000000000005" y="35.532233883058474"/>
         </scene>
-        <!--Pie View Controller-->
+        <!--Hotpot-->
         <scene sceneID="j76-ac-Lt8">
             <objects>
                 <viewController id="Wwv-b3-MyN" customClass="PieViewController" customModule="Hotpot" customModuleProvider="target" sceneMemberID="viewController">
@@ -129,7 +129,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="SbF-EC-MsP"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lV9-D0-OtY">
+                    <navigationItem key="navigationItem" title="Hotpot" id="lV9-D0-OtY">
                         <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="7yn-uM-5Ph">
                             <connections>
                                 <action selector="goBack:" destination="Wwv-b3-MyN" id="6fp-zq-KWm"/>
@@ -297,7 +297,7 @@
             </objects>
             <point key="canvasLocation" x="-945" y="-813"/>
         </scene>
-        <!--Search Table View Controller-->
+        <!--Hotpot-->
         <scene sceneID="Z5X-Nl-Yn2">
             <objects>
                 <tableViewController id="5pb-XI-Kc1" customClass="SearchTableViewController" customModule="Hotpot" customModuleProvider="target" sceneMemberID="viewController">
@@ -320,9 +320,7 @@
                             <outlet property="delegate" destination="5pb-XI-Kc1" id="eyJ-1F-AUI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tl2-el-3gX">
-                        <nil key="title"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Hotpot" id="tl2-el-3gX"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="Trj-ay-PyX" id="6Gl-yw-7FW"/>
                     </connections>
@@ -339,7 +337,7 @@
             </objects>
             <point key="canvasLocation" x="-1326" y="36"/>
         </scene>
-        <!--Budget View Controller-->
+        <!--Hotpot-->
         <scene sceneID="yf3-cR-1XN">
             <objects>
                 <viewController storyboardIdentifier="BudgetViewController" id="L8z-jA-uBU" customClass="BudgetViewController" customModule="Hotpot" customModuleProvider="target" sceneMemberID="viewController">
@@ -354,16 +352,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please set your budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vay-Ib-9D2">
-                                <rect key="frame" x="92" y="228" width="190" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjY-ID-Vxi">
-                                <rect key="frame" x="100" y="356" width="48" height="30"/>
+                                <rect key="frame" x="100" y="356" width="60" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="goBack:" destination="L8z-jA-uBU" eventType="touchUpInside" id="nZo-qJ-2Tb"/>
@@ -372,19 +364,43 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8s-LM-Yav">
                                 <rect key="frame" x="189" y="356" width="93" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="OK"/>
                                 <connections>
                                     <action selector="goBack:" destination="L8z-jA-uBU" eventType="touchUpInside" id="lGy-Xw-zse"/>
                                     <action selector="setBudget:" destination="L8z-jA-uBU" eventType="touchUpInside" id="7NF-8l-2XF"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxo-Cq-g79">
+                                <rect key="frame" x="48" y="106" width="194" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAs-ib-Y8F">
+                                <rect key="frame" x="48" y="147" width="299" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Update your budget" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vay-Ib-9D2">
+                                <rect key="frame" x="76" y="266" width="223" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.83897578719999999" green="0.79171800609999998" blue="0.81571382280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="EpV-7u-2St"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZqY-xZ-kke"/>
+                    <navigationItem key="navigationItem" title="Hotpot" id="ZqY-xZ-kke"/>
                     <connections>
                         <outlet property="budgetTextField" destination="gFv-W9-Zq1" id="jke-9u-IJ4"/>
+                        <outlet property="currentBudget" destination="MAs-ib-Y8F" id="HmN-9V-ntI"/>
+                        <outlet property="currentMonth" destination="mxo-Cq-g79" id="fMI-eZ-0Ip"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ZP-Is-DtW" userLabel="First Responder" sceneMemberID="firstResponder"/>

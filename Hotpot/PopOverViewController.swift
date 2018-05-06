@@ -86,12 +86,9 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
     
+    // load the view
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
     }
     
     // touch on the screen will hide the keyboard
@@ -101,6 +98,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
 
 
+    // open image library (and camera)
     @IBAction func openCameraButton(_ sender: Any) {
 //        if UIImagePickerController.isSourceTypeAvailable(.camera) {
 //            var imagePicker = UIImagePickerController()
@@ -118,7 +116,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
 
-    
+    // 
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         print("image picker controller")
@@ -147,11 +145,12 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         dismiss(animated:true, completion: nil)
     }
     
+    // close image picker and return to last view
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true)
     }
 
-    
+    // save the selected image
     func SaveImageInDD(_ name: String){
         if let image = imagePicked.image {
             let fileManager = FileManager.default
@@ -167,22 +166,13 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
     
+    // get current directory path
     func getDirectoryPath()-> String{
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let doc = path[0]
         return doc
     }
-//    
-//    func GetImage(_ name: String){
-//        let fileManager = FileManager.default
-//        let path = (self.getDirectoryPath() as NSString).appendingPathComponent(name+".jpg")
-//        if fileManager.fileExists(atPath: path){
-//            imageView = UIImage(contentsOfFile: path)
-//        }
-//        else{
-//            print("No Image")
-//        }
-//    }
+
     
     // save popup
     @IBAction func savePopup(_ sender: Any) {
@@ -365,6 +355,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             }
         }
         
+        // save the selected image
         if(entry.date != nil){
             if(imagePicked != nil){
                 let name = entry.date!
@@ -372,9 +363,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             }
         }
         
-        
 
-        
         // save data to coredata
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
@@ -417,10 +406,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             //go to BudgetViewController through ccurrent visible controller
             let newViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BudgetViewController")
             UIApplication.topViewController()?.present(newViewController, animated: true, completion: nil)
-            
-            
         }))
-        
         
         
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
