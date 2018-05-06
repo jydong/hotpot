@@ -36,6 +36,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         self.searchController.searchBar.scopeButtonTitles = ["All", "USD"]
         self.searchController.searchBar.delegate = self
+//        let frame = CGRect(x: 0, y: 0, width: 100, height: 44)
+//        searchController.searchBar.frame = frame
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier:"cell")
     }
