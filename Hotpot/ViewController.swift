@@ -200,6 +200,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let n = entry.note {
             displayedString = "\(displayedString)\n\("      ")\(n)"
         }
+        if let d = entry.date{
+            
+            let dateFormatterPrint = DateFormatter()
+            dateFormatterPrint.dateFormat = "MMM dd, yyyy"
+            displayedString = "\(displayedString)\n\("      ")\(dateFormatterPrint.string(from: d))"
+        }
         
 
         cell.textLabel?.text = displayedString
