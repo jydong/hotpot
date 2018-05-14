@@ -32,4 +32,7 @@ $ git clone https://github.com/DroidsOnRoids/let-swift-app.git
 $ cd let-swift-app
 ```
 #### Install pods
+```
+$ pod install
+```
 
