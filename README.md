@@ -15,8 +15,6 @@ iOS9.2 & iOS10
 
 - iPhone 8
 
-## The objective
-
 
 ## Features
 - [x] Recording expenses and income
@@ -28,8 +26,8 @@ iOS9.2 & iOS10
 ## Installation guide
 #### Download repo
 ```
-$ git clone https://github.com/DroidsOnRoids/let-swift-app.git
-$ cd let-swift-app
+$ git clone https://github.com/jydong/hotpot.git
+$ cd hotpot
 ```
 #### Install pods
 ```
