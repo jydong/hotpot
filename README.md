@@ -18,16 +18,23 @@ iOS9.2 & iOS10
 
 ## Features
 - [x] Recording expenses and income
-![Image](/screenshots/add.png=100x20)
-
-- [x] Records management
-![Image](/screenshots/v2/screenshots_1.png)
-
+- [x] Records management and searching
 - [x] Budgeting
-![Image](/screenshots/v2/budget.png)
-
 - [x] Financial reports
-![Image](/screenshots/v2/screenshots_1.png)
+
+### Recording expenses and income
+<img src="/screenshots/add.png" width="300">
+<img src="/screenshots/upload.png" width="600">
+
+### Records management and searching 
+<img src="/screenshots/display.png" width="600">
+<img src="/screenshots/search.png" width="300">
+
+### Budgeting
+<img src="/screenshots/budget.png" width="300">
+
+### Financial reports
+<img src="/screenshots/charts.png" width="300">
 
 
 
