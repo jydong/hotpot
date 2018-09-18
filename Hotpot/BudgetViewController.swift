@@ -6,6 +6,8 @@
 //  Copyright © 2018 Jingyan Dong. All rights reserved.
 //
 
+//This file will display a new window showing current budget and enabling the user to update the budget.
+
 import UIKit
 import CoreData
 

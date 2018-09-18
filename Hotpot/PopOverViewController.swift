@@ -378,7 +378,7 @@ class PopOverViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             UIApplication.topViewController()?.present(newViewController, animated: true, completion: nil)
         }))
         
-        
+        //close the alert window
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
             print("NO")
