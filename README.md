@@ -18,9 +18,17 @@ iOS9.2 & iOS10
 
 ## Features
 - [x] Recording expenses and income
+![Image](/screenshots/add.png=100x20)
+
 - [x] Records management
+![Image](/screenshots/v2/screenshots_1.png)
+
 - [x] Budgeting
+![Image](/screenshots/v2/budget.png)
+
 - [x] Financial reports
+![Image](/screenshots/v2/screenshots_1.png)
+
 
 
 ## Installation guide
